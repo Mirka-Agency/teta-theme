@@ -1294,6 +1294,59 @@ img, svg { max-width: 100%; height: auto; }
 .post-content h2 {
   margin: 2rem 0 .85rem;
   font-size: 1.2rem;
+  scroll-margin-top: calc(var(--tp-header-offset) + 1rem);
+}
+
+.post-toc.sticky-lg-top {
+  top: calc(var(--tp-header-offset) + .75rem);
+  z-index: 2;
+}
+
+.post-toc-list {
+  display: grid;
+  gap: .55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+}
+
+.post-toc-list li {
+  counter-increment: toc;
+}
+
+.post-toc-list a {
+  display: flex;
+  gap: .55rem;
+  align-items: flex-start;
+  padding: .55rem .7rem;
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--tp-body);
+  background: var(--tp-sky-50);
+  border-radius: var(--tp-radius-sm);
+  transition: color .2s, background-color .2s;
+}
+
+.post-toc-list a::before {
+  content: counter(toc);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: .1rem;
+  font-size: .72rem;
+  font-weight: 800;
+  color: var(--tp-navy);
+  background: #fff;
+  border-radius: 50%;
+}
+
+.post-toc-list a:hover {
+  color: var(--tp-navy);
+  background: var(--tp-sky);
 }
 .post-content p { margin-bottom: 1.1rem; }
 .post-content ul {

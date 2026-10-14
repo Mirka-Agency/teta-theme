@@ -51,6 +51,39 @@
     });
   });
 
+  // Blog single: build TOC from article h2 headings
+  document.querySelectorAll('[data-toc]').forEach((toc) => {
+    const list = toc.querySelector('[data-toc-list]');
+    const content = document.querySelector('.post-content');
+    if (!list || !content) return;
+
+    const headings = content.querySelectorAll('h2');
+    if (!headings.length) {
+      toc.hidden = true;
+      return;
+    }
+
+    const slugify = (text, index) => {
+      const base = text
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\u0600-\u06FFa-zA-Z0-9-]/g, '')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+      return base || `section-${index + 1}`;
+    };
+
+    headings.forEach((heading, index) => {
+      if (!heading.id) heading.id = slugify(heading.textContent || '', index);
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent.trim();
+      item.appendChild(link);
+      list.appendChild(item);
+    });
+  });
+
   // Shop mega menu: hover on desktop only; click navigates to shop.html
   const shopNav = document.querySelector('.header-nav .nav-shop');
   if (shopNav) {
