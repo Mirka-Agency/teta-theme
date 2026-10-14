@@ -101,7 +101,7 @@
             <ul class="navbar-nav align-items-lg-center">
               <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
               <li class="nav-item dropdown position-static nav-shop">
-                <a class="nav-link dropdown-toggle active" href="shop.html" aria-current="page" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">فروشگاه</a>
+                <a class="nav-link active" href="shop.html" aria-current="page">فروشگاه</a>
                 <div class="dropdown-menu mega-menu">
                   <div class="container">
                     <div class="row g-4">
@@ -133,7 +133,7 @@
                   </div>
                 </div>
               </li>
-              <li class="nav-item"><a class="nav-link" href="index.html#blog">مجله خودرو</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#blog">وبلاگ</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
               <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
             </ul>
@@ -354,79 +354,106 @@
             <span class="section-eyebrow">معمولاً با هم خریده می‌شوند</span>
             <h2 class="section-title" id="relTitle">محصولات مرتبط</h2>
           </div>
+          <div class="scroller-nav">
+            <button type="button" data-scroll="#relatedScroller" data-dir="prev" aria-label="قبلی"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <button type="button" data-scroll="#relatedScroller" data-dir="next" aria-label="بعدی"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+          </div>
         </div>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-lg-4">
-          <div class="col">
-            <article class="product-card">
-              <div class="product-media">
-                <div class="product-badges"><span class="badge-tag badge-sale">۱۹٪</span></div>
-                <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین" width="240" height="240" loading="lazy">
+        <div class="products-scroller" id="relatedScroller" tabindex="0" aria-label="محصولات مرتبط">
+          <article class="product-card">
+            <div class="product-media">
+              <div class="product-badges"><span class="badge-tag badge-sale">۱۹٪</span></div>
+              <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+              <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین" width="240" height="240" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6447.X9</span></div>
+              <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کربن‌دار پژو ۲۰۶ و رانا</a></h3>
+              <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+              <div class="product-foot">
+                <div class="price"><del>۱٬۱۸۰٬۰۰۰</del><strong>۹۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
               </div>
-              <div class="product-body">
-                <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6447.X9</span></div>
-                <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کربن‌دار پژو ۲۰۶ و رانا</a></h3>
-                <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
-                <div class="product-foot">
-                  <div class="price"><del>۱٬۱۸۰٬۰۰۰</del><strong>۹۵۰٬۰۰۰ <small>تومان</small></strong></div>
-                  <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
-                </div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-media">
+              <div class="product-badges"><span class="badge-tag badge-sale">۲۵٪</span></div>
+              <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+              <img src="assets/img/products/refrigerant.svg" alt="گاز R134a" width="240" height="240" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-meta"><span>گاز کولر</span><span class="sku">R134a-450</span></div>
+              <h3 class="product-title"><a class="stretched-link" href="product.html">گاز کولر R134a — ۴۵۰ گرم (با شیر)</a></h3>
+              <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+              <div class="product-foot">
+                <div class="price"><del>۲۸۰٬۰۰۰</del><strong>۲۱۰٬۰۰۰ <small>تومان</small></strong></div>
+                <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
               </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="product-card">
-              <div class="product-media">
-                <div class="product-badges"><span class="badge-tag badge-sale">۲۵٪</span></div>
-                <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                <img src="assets/img/products/refrigerant.svg" alt="گاز R134a" width="240" height="240" loading="lazy">
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-media">
+              <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+              <img src="assets/img/products/ac-hose.svg" alt="شیلنگ کولر" width="240" height="240" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-meta"><span>شیلنگ</span><span class="sku">HP-206</span></div>
+              <h3 class="product-title"><a class="stretched-link" href="product.html">شیلنگ فشار بالا کولر پژو ۲۰۶ (کامل)</a></h3>
+              <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+              <div class="product-foot">
+                <div class="price"><strong>۱٬۰۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
               </div>
-              <div class="product-body">
-                <div class="product-meta"><span>گاز کولر</span><span class="sku">R134a-450</span></div>
-                <h3 class="product-title"><a class="stretched-link" href="product.html">گاز کولر R134a — ۴۵۰ گرم (با شیر)</a></h3>
-                <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
-                <div class="product-foot">
-                  <div class="price"><del>۲۸۰٬۰۰۰</del><strong>۲۱۰٬۰۰۰ <small>تومان</small></strong></div>
-                  <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
-                </div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-media">
+              <div class="product-badges"><span class="badge-tag badge-new">جدید</span></div>
+              <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+              <img src="assets/img/products/expansion-valve.svg" alt="شیر انبساط" width="240" height="240" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-meta"><span>شیر انبساط</span><span class="sku">TXV-206</span></div>
+              <h3 class="product-title"><a class="stretched-link" href="product.html">شیر انبساط کولر پژو ۲۰۶ تیپ ۵</a></h3>
+              <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+              <div class="product-foot">
+                <div class="price"><strong>۲٬۴۹۰٬۰۰۰ <small>تومان</small></strong></div>
+                <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
               </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="product-card">
-              <div class="product-media">
-                <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                <img src="assets/img/products/ac-hose.svg" alt="شیلنگ کولر" width="240" height="240" loading="lazy">
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-media">
+              <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+              <img src="assets/img/products/clutch.svg" alt="کلاچ کمپرسور" width="240" height="240" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-meta"><span>کلاچ</span><span class="sku">CL-206</span></div>
+              <h3 class="product-title"><a class="stretched-link" href="product.html">کلاچ کمپرسور کولر پژو ۲۰۶</a></h3>
+              <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+              <div class="product-foot">
+                <div class="price"><strong>۱٬۸۹۰٬۰۰۰ <small>تومان</small></strong></div>
+                <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
               </div>
-              <div class="product-body">
-                <div class="product-meta"><span>شیلنگ</span><span class="sku">HP-206</span></div>
-                <h3 class="product-title"><a class="stretched-link" href="product.html">شیلنگ فشار بالا کولر پژو ۲۰۶ (کامل)</a></h3>
-                <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
-                <div class="product-foot">
-                  <div class="price"><strong>۱٬۰۵۰٬۰۰۰ <small>تومان</small></strong></div>
-                  <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
-                </div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-media">
+              <div class="product-badges"><span class="badge-tag badge-oem">اصلی</span></div>
+              <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+              <img src="assets/img/products/receiver-drier.svg" alt="رسیور درایر" width="240" height="240" loading="lazy">
+            </div>
+            <div class="product-body">
+              <div class="product-meta"><span>رسیور درایر</span><span class="sku">RD-206</span></div>
+              <h3 class="product-title"><a class="stretched-link" href="product.html">رسیور درایر کولر پژو ۲۰۶ تیپ ۵</a></h3>
+              <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+              <div class="product-foot">
+                <div class="price"><strong>۷۸۰٬۰۰۰ <small>تومان</small></strong></div>
+                <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
               </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="product-card">
-              <div class="product-media">
-                <div class="product-badges"><span class="badge-tag badge-new">جدید</span></div>
-                <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                <img src="assets/img/products/expansion-valve.svg" alt="شیر انبساط" width="240" height="240" loading="lazy">
-              </div>
-              <div class="product-body">
-                <div class="product-meta"><span>شیر انبساط</span><span class="sku">TXV-206</span></div>
-                <h3 class="product-title"><a class="stretched-link" href="product.html">شیر انبساط کولر پژو ۲۰۶ تیپ ۵</a></h3>
-                <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
-                <div class="product-foot">
-                  <div class="price"><strong>۲٬۴۹۰٬۰۰۰ <small>تومان</small></strong></div>
-                  <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -461,7 +488,7 @@
             <li><a href="shop.html">فروشگاه</a></li>
             <li><a href="shop.html#offers">پیشنهادهای ویژه</a></li>
             <li><a href="index.html#brands">برندهای خودرو</a></li>
-            <li><a href="index.html#blog">مجله خودرو</a></li>
+            <li><a href="index.html#blog">وبلاگ</a></li>
             <li><a href="about.html">درباره ما</a></li>
           </ul>
         </div>

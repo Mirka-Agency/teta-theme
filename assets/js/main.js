@@ -51,39 +51,21 @@
     });
   });
 
-  // Shop mega menu: open on hover (desktop), click stays for mobile
+  // Shop mega menu: hover on desktop only; click navigates to shop.html
   const shopNav = document.querySelector('.header-nav .nav-shop');
   if (shopNav) {
-    const toggle = shopNav.querySelector('[data-bs-toggle="dropdown"]');
     const mq = window.matchMedia('(min-width: 992px)');
     let hideTimer;
 
-    const getDropdown = () =>
-      window.bootstrap && toggle
-        ? window.bootstrap.Dropdown.getOrCreateInstance(toggle)
-        : null;
-
-    const openMenu = () => {
-      clearTimeout(hideTimer);
-      const dd = getDropdown();
-      if (dd) dd.show();
-      else shopNav.classList.add('show');
-    };
-
-    const scheduleClose = () => {
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => {
-        const dd = getDropdown();
-        if (dd) dd.hide();
-        else shopNav.classList.remove('show');
-      }, 120);
-    };
-
     shopNav.addEventListener('mouseenter', () => {
-      if (mq.matches) openMenu();
+      if (!mq.matches) return;
+      clearTimeout(hideTimer);
+      shopNav.classList.add('show');
     });
     shopNav.addEventListener('mouseleave', () => {
-      if (mq.matches) scheduleClose();
+      if (!mq.matches) return;
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => shopNav.classList.remove('show'), 120);
     });
   }
 

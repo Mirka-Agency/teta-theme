@@ -774,15 +774,10 @@ img, svg { max-width: 100%; height: auto; }
     box-shadow: var(--tp-shadow-lg);
   }
 
-  /* باز شدن زیرمنوی فروشگاه با هاور */
+  /* باز شدن زیرمنوی فروشگاه با هاور؛ کلیک می‌رود به shop.html */
   .header-nav .nav-shop:hover > .dropdown-menu,
   .header-nav .nav-shop.show > .dropdown-menu {
     display: block;
-  }
-
-  .header-nav .nav-shop > .dropdown-toggle::after {
-    margin-right: .35rem;
-    vertical-align: .15em;
   }
 }
 
@@ -1032,6 +1027,35 @@ img, svg { max-width: 100%; height: auto; }
 .cats-scroller::-webkit-scrollbar { display: none; }
 
 .cats-scroller .cat-card {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.products-scroller {
+  --products-gap: 1rem;
+  --products-visible: 1.35;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--products-visible) - 1) * var(--products-gap)) / var(--products-visible));
+  gap: var(--products-gap);
+  margin-block: -.35rem;
+  padding-block: .35rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 576px) { .products-scroller { --products-visible: 2; } }
+@media (min-width: 768px) { .products-scroller { --products-visible: 3; } }
+@media (min-width: 992px) { .products-scroller { --products-visible: 4; } }
+
+.products-scroller::-webkit-scrollbar { display: none; }
+
+.products-scroller .product-card {
   scroll-snap-align: start;
   min-width: 0;
 }
