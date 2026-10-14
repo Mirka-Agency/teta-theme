@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>فروشگاه قطعات یدکی | تتا یدک</title>
+  <meta name="description" content="فهرست قطعات یدکی خودرو با فیلتر بر اساس خودرو، دسته‌بندی، برند و قیمت.">
+  <meta name="theme-color" content="#0A1057">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+
+  <!-- Topbar -->
+  <div class="topbar d-none d-md-block">
+    <div class="container">
+      <div class="d-flex align-items-center gap-4">
+        <span><i class="bi bi-truck" aria-hidden="true"></i>ارسال رایگان برای سفارش‌های بالای ۳ میلیون تومان</span>
+        <span class="d-none d-lg-inline"><i class="bi bi-patch-check" aria-hidden="true"></i>ضمانت اصالت و سلامت فیزیکی کالا</span>
+      </div>
+      <ul class="topbar-links">
+        <li><a href="account.html#orders">پیگیری سفارش</a></li>
+        <li><a href="contact.html#faq">سوالات متداول</a></li>
+        <li><a href="tel:+982112345678"><i class="bi bi-telephone" aria-hidden="true"></i><span class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header sticky-top">
+    <div class="header-main">
+      <div class="container d-flex align-items-center gap-2 gap-lg-4">
+        <button class="btn-menu d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav" aria-controls="mainNav" aria-label="باز کردن منو">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <a class="brand" href="index.html" aria-label="تتا یدک، صفحه اصلی">
+          <span class="brand-mark"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></span>
+          <span class="brand-text">تتا یدک<small>قطعات اصلی خودرو</small></span>
+        </a>
+
+        <form class="header-search d-none d-lg-flex" action="shop.html" role="search">
+          <label class="visually-hidden" for="searchCat">دسته‌بندی</label>
+          <select class="form-select" id="searchCat" name="cat">
+            <option value="">همه دسته‌ها</option>
+            <option value="brake">ترمز</option>
+            <option value="engine">موتور</option>
+            <option value="filter">فیلتر</option>
+            <option value="electric">برق و باتری</option>
+            <option value="suspension">تعلیق و جلوبندی</option>
+            <option value="light">چراغ و روشنایی</option>
+            <option value="tire">لاستیک و رینگ</option>
+            <option value="oil">روغن و مایعات</option>
+          </select>
+          <label class="visually-hidden" for="searchQ">جستجوی قطعه</label>
+          <input class="form-control" type="search" id="searchQ" name="q" placeholder="نام قطعه، شماره فنی (OEM) یا مدل خودرو…" autocomplete="off">
+          <button type="submit" aria-label="جستجو"><i class="bi bi-search" aria-hidden="true"></i></button>
+        </form>
+
+        <div class="header-actions">
+          <a class="action-btn d-none d-sm-inline-flex" href="account.html">
+            <i class="bi bi-person" aria-hidden="true"></i><span class="d-none d-xl-inline">ورود | ثبت‌نام</span><span class="visually-hidden d-xl-none">حساب کاربری</span>
+          </a>
+          <a class="action-btn" href="account.html#wishlist" aria-label="علاقه‌مندی‌ها، ۳ کالا">
+            <span class="icon-wrap"><i class="bi bi-heart" aria-hidden="true"></i><span class="count">۳</span></span>
+          </a>
+          <a class="action-btn action-cart" href="cart.html" aria-label="سبد خرید، ۳ کالا">
+            <span class="icon-wrap"><i class="bi bi-bag" aria-hidden="true"></i><span class="count">۳</span></span>
+            <span class="cart-text d-none d-xl-block"><small>سبد خرید</small>۳٬۰۹۰٬۰۰۰ تومان</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container d-lg-none pt-3">
+        <form class="header-search mw-100" action="shop.html" role="search">
+          <label class="visually-hidden" for="searchQMobile">جستجوی قطعه</label>
+          <input class="form-control" type="search" id="searchQMobile" name="q" placeholder="جستجوی قطعه یا شماره فنی…" autocomplete="off">
+          <button type="submit" aria-label="جستجو"><i class="bi bi-search" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main navigation -->
+    <nav class="navbar navbar-expand-lg header-nav p-0" aria-label="منوی اصلی">
+      <div class="container">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel">
+          <div class="offcanvas-header">
+            <a class="brand" href="index.html" id="mainNavLabel">
+              <span class="brand-mark"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></span>
+              <span class="brand-text">تتا یدک<small>قطعات اصلی خودرو</small></span>
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#mainNav" aria-label="بستن منو"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav align-items-lg-center">
+              <li class="nav-item dropdown position-static">
+                <a class="nav-link nav-cats dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                  <i class="bi bi-grid" aria-hidden="true"></i> دسته‌بندی قطعات
+                </a>
+                <div class="dropdown-menu mega-menu">
+                  <div class="container">
+                    <div class="row g-4">
+                      <div class="col-lg-9">
+                        <div class="row row-cols-1 row-cols-lg-4 g-4">
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/brake-disc.svg" alt="" width="36" height="36">ترمز</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">لنت ترمز</a></li>
+                              <li><a href="shop.html">دیسک و کاسه چرخ</a></li>
+                              <li><a href="shop.html">کالیپر و سیلندر</a></li>
+                              <li><a href="shop.html">شیلنگ و روغن ترمز</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/spark-plug.svg" alt="" width="36" height="36">موتور</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">شمع و وایر</a></li>
+                              <li><a href="shop.html">تسمه تایم و سفت‌کن</a></li>
+                              <li><a href="shop.html">واشر سرسیلندر</a></li>
+                              <li><a href="shop.html">پمپ آب و ترموستات</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/oil-filter.svg" alt="" width="36" height="36">فیلتر</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">فیلتر روغن</a></li>
+                              <li><a href="shop.html">فیلتر هوا</a></li>
+                              <li><a href="shop.html">فیلتر کابین</a></li>
+                              <li><a href="shop.html">فیلتر بنزین</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/battery.svg" alt="" width="36" height="36">برق و باتری</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">باتری</a></li>
+                              <li><a href="shop.html">دینام و استارت</a></li>
+                              <li><a href="shop.html">سنسورها</a></li>
+                              <li><a href="shop.html">فیوز و رله</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/shock-absorber.svg" alt="" width="36" height="36">تعلیق و جلوبندی</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">کمک فنر</a></li>
+                              <li><a href="shop.html">طبق و سیبک</a></li>
+                              <li><a href="shop.html">بلبرینگ چرخ</a></li>
+                              <li><a href="shop.html">میل‌موجگیر</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/headlight.svg" alt="" width="36" height="36">چراغ و روشنایی</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">چراغ جلو</a></li>
+                              <li><a href="shop.html">چراغ عقب</a></li>
+                              <li><a href="shop.html">لامپ و هالوژن</a></li>
+                              <li><a href="shop.html">مه‌شکن</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/tire.svg" alt="" width="36" height="36">لاستیک و رینگ</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">لاستیک سواری</a></li>
+                              <li><a href="shop.html">رینگ اسپرت</a></li>
+                              <li><a href="shop.html">زاپاس و جک</a></li>
+                            </ul>
+                          </div>
+                          <div class="col">
+                            <a class="mega-title" href="shop.html"><img src="assets/img/products/oil-can.svg" alt="" width="36" height="36">روغن و مایعات</a>
+                            <ul class="mega-list">
+                              <li><a href="shop.html">روغن موتور</a></li>
+                              <li><a href="shop.html">روغن گیربکس</a></li>
+                              <li><a href="shop.html">ضدیخ و ضدجوش</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 d-none d-lg-block">
+                        <a class="mega-promo" href="shop.html">
+                          <img src="assets/img/products/brake-disc.svg" alt="" width="170" height="170">
+                          <small>فقط این هفته</small>
+                          <strong>تا ۳۰٪ تخفیف لنت ترمز</strong>
+                          <span class="btn btn-white btn-sm align-self-start">مشاهده</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="shop.html">فروشگاه</a></li>
+              <li class="nav-item"><a class="nav-link" href="shop.html#offers">پیشنهادهای ویژه</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#brands">برندها</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#blog">مجله خودرو</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+            </ul>
+
+            <button class="nav-garage d-none d-xl-inline-flex" type="button" data-bs-toggle="modal" data-bs-target="#garageModal">
+              <i class="bi bi-car-front" aria-hidden="true"></i> خودروی من: <strong>پژو ۲۰۶ تیپ ۵</strong>
+            </button>
+
+            <div class="d-lg-none mt-4 d-grid gap-2">
+              <button class="btn btn-soft" type="button" data-bs-toggle="modal" data-bs-target="#garageModal"><i class="bi bi-car-front" aria-hidden="true"></i> انتخاب خودروی من</button>
+              <a class="btn btn-primary" href="account.html"><i class="bi bi-person" aria-hidden="true"></i> ورود | ثبت‌نام</a>
+              <a class="btn btn-outline-primary" href="tel:+982112345678"><i class="bi bi-telephone" aria-hidden="true"></i> <span class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="container">
+        <nav aria-label="مسیر صفحه">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">خانه</a></li>
+            <li class="breadcrumb-item"><a href="shop.html">فروشگاه</a></li>
+            <li class="breadcrumb-item active" aria-current="page">قطعات ترمز</li>
+          </ol>
+        </nav>
+        <h1>قطعات ترمز</h1>
+      </div>
+    </div>
+
+    <section class="section pt-4" id="offers">
+      <div class="container">
+        <div class="row g-0 g-lg-4">
+          <!-- Filters -->
+          <aside class="col-lg-3" aria-label="فیلتر محصولات">
+            <div class="offcanvas-lg offcanvas-start shop-filters" tabindex="-1" id="shopFilters" aria-labelledby="shopFiltersLabel">
+              <div class="offcanvas-header border-bottom">
+                <h2 class="offcanvas-title fs-5" id="shopFiltersLabel">فیلترها</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#shopFilters" aria-label="بستن فیلترها"></button>
+              </div>
+              <div class="offcanvas-body d-block">
+                <form action="shop.html">
+                  <div class="filter-block">
+                    <div class="filter-title">خودروی شما</div>
+                    <div class="d-grid gap-2">
+                      <label class="visually-hidden" for="flBrand">سازنده</label>
+                      <select class="form-select" id="flBrand" name="brand">
+                        <option>ایران‌خودرو</option>
+                        <option>سایپا</option>
+                        <option>مدیران‌خودرو</option>
+                      </select>
+                      <label class="visually-hidden" for="flModel">مدل</label>
+                      <select class="form-select" id="flModel" name="model">
+                        <option selected>پژو ۲۰۶ تیپ ۵</option>
+                        <option>پژو پارس</option>
+                        <option>سمند</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="filter-block">
+                    <div class="filter-title">دسته‌بندی</div>
+                    <ul class="filter-list">
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c1" checked><label class="form-check-label" for="c1">لنت ترمز</label><span class="count">۱۲۴</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c2" checked><label class="form-check-label" for="c2">دیسک و کاسه چرخ</label><span class="count">۸۶</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c3"><label class="form-check-label" for="c3">کالیپر ترمز</label><span class="count">۴۲</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c4"><label class="form-check-label" for="c4">پمپ و سیلندر ترمز</label><span class="count">۵۸</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c5"><label class="form-check-label" for="c5">شیلنگ ترمز</label><span class="count">۳۱</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c6"><label class="form-check-label" for="c6">روغن ترمز</label><span class="count">۱۹</span></li>
+                    </ul>
+                  </div>
+
+                  <div class="filter-block">
+                    <div class="filter-title">برند سازنده قطعه</div>
+                    <ul class="filter-list">
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b1"><label class="form-check-label" for="b1">ایساکو</label><span class="count">۶۲</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b2"><label class="form-check-label" for="b2">بوش</label><span class="count">۴۸</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b3"><label class="form-check-label" for="b3">والئو</label><span class="count">۳۷</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b4"><label class="form-check-label" for="b4">تی‌آر‌دبلیو</label><span class="count">۲۹</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b5"><label class="form-check-label" for="b5">پارس لنت</label><span class="count">۵۵</span></li>
+                    </ul>
+                  </div>
+
+                  <div class="filter-block">
+                    <label class="filter-title" for="priceRange">حداکثر قیمت</label>
+                    <input type="range" class="form-range" id="priceRange" name="max" min="100000" max="10000000" step="100000" value="6000000" data-range-output="#priceOut">
+                    <div class="price-out"><span>از ۱۰۰٬۰۰۰</span><span>تا <strong id="priceOut">۶٬۰۰۰٬۰۰۰</strong> تومان</span></div>
+                  </div>
+
+                  <div class="filter-block">
+                    <div class="form-check form-switch d-flex justify-content-between align-items-center p-0 mb-3">
+                      <label class="form-check-label fs-sm fw-semibold" for="onlyStock">فقط کالاهای موجود</label>
+                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlyStock" checked>
+                    </div>
+                    <div class="form-check form-switch d-flex justify-content-between align-items-center p-0 mb-3">
+                      <label class="form-check-label fs-sm fw-semibold" for="onlyOem">فقط قطعات اصلی (OEM)</label>
+                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlyOem">
+                    </div>
+                    <div class="form-check form-switch d-flex justify-content-between align-items-center p-0">
+                      <label class="form-check-label fs-sm fw-semibold" for="onlySale">فقط تخفیف‌دار</label>
+                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlySale">
+                    </div>
+                  </div>
+
+                  <div class="filter-block d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">اعمال فیلترها</button>
+                    <button class="btn btn-soft" type="reset">حذف همه فیلترها</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Products -->
+          <div class="col-lg-9">
+            <div class="garage-bar">
+              <i class="bi bi-check2-circle" aria-hidden="true"></i>
+              <span>نمایش قطعات سازگار با <strong>پژو ۲۰۶ تیپ ۵ — ۱۴۰۲</strong></span>
+              <button class="btn btn-sm btn-white border me-auto" type="button" data-bs-toggle="modal" data-bs-target="#garageModal">تغییر خودرو</button>
+            </div>
+
+            <div class="shop-toolbar">
+              <button class="btn btn-soft btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#shopFilters" aria-controls="shopFilters"><i class="bi bi-sliders" aria-hidden="true"></i> فیلترها</button>
+              <ul class="sort-links d-none d-md-flex">
+                <li class="label"><i class="bi bi-sort-down" aria-hidden="true"></i> مرتب‌سازی:</li>
+                <li><a class="active" href="#" aria-current="true">مرتبط‌ترین</a></li>
+                <li><a href="#">پرفروش‌ترین</a></li>
+                <li><a href="#">ارزان‌ترین</a></li>
+                <li><a href="#">گران‌ترین</a></li>
+                <li><a href="#">جدیدترین</a></li>
+              </ul>
+              <div class="d-md-none">
+                <label class="visually-hidden" for="sortMobile">مرتب‌سازی</label>
+                <select class="form-select form-select-sm" id="sortMobile">
+                  <option>مرتبط‌ترین</option>
+                  <option>پرفروش‌ترین</option>
+                  <option>ارزان‌ترین</option>
+                  <option>گران‌ترین</option>
+                  <option>جدیدترین</option>
+                </select>
+              </div>
+              <span class="fs-sm text-secondary">۱۲ کالا از ۲۱۰</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button class="chip" type="button">لنت ترمز <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span></button>
+              <button class="chip" type="button">دیسک و کاسه چرخ <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span></button>
+              <button class="chip" type="button">فقط موجود <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span></button>
+            </div>
+
+            <div class="row row-cols-2 row-cols-md-3 g-3">
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-sale">۱۵٪</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-disc.svg" alt="دیسک ترمز جلو پژو ۲۰۶" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>دیسک ترمز</span><span class="sku">4249.34</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">دیسک ترمز جلو پژو ۲۰۶ تیپ ۵ (جفت)</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><del>۱٬۸۵۰٬۰۰۰</del><strong>۱٬۵۷۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-sale">۱۹٪</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-pad.svg" alt="لنت ترمز جلو سرامیکی" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>لنت ترمز</span><span class="sku">GDB1464</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">لنت ترمز جلو سرامیکی پژو ۲۰۶ تیپ ۵</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><del>۱٬۱۸۰٬۰۰۰</del><strong>۹۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-oem">اصلی</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-pad.svg" alt="لنت ترمز عقب" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>لنت ترمز</span><span class="sku">4254.85</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">لنت ترمز عقب پژو ۲۰۶ (دیسکی)</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۸۶۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-disc.svg" alt="دیسک ترمز عقب" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>دیسک ترمز</span><span class="sku">4249.H4</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">دیسک ترمز عقب پژو ۲۰۶ اسپرت</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۱٬۳۲۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-new">جدید</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/box.svg" alt="کیت ترمز جلو" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>کیت ترمز</span><span class="sku">KIT-BR206</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">کیت کامل ترمز جلو (دیسک و لنت) پژو ۲۰۶</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۲٬۴۹۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-sale">۲۵٪</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/oil-can.svg" alt="روغن ترمز DOT4" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>روغن ترمز</span><span class="sku">DOT4-500</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">روغن ترمز DOT4 نیم لیتری</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><del>۲۸۰٬۰۰۰</del><strong>۲۱۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-disc.svg" alt="کاسه چرخ عقب" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>کاسه چرخ</span><span class="sku">4247.33</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">کاسه چرخ عقب پژو ۲۰۶ تیپ ۲ و ۵</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۱٬۰۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card is-out">
+                  <div class="product-media">
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-pad.svg" alt="لنت ترمز دستی" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>لنت ترمز</span><span class="sku">4241.64</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">لنت ترمز دستی (کفشکی) پژو ۲۰۶</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <span class="stock-out">ناموجود</span>
+                      <button class="btn-cart" type="button" aria-label="موجود شد خبرم کن"><i class="bi bi-bell" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-sale">۱۰٪</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-disc.svg" alt="دیسک ترمز تقویتی" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>دیسک ترمز</span><span class="sku">PRF-206V</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">دیسک ترمز تقویتی سوراخ‌دار پژو ۲۰۶</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><del>۳٬۲۰۰٬۰۰۰</del><strong>۲٬۸۸۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/shock-absorber.svg" alt="سیلندر ترمز چرخ" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>سیلندر ترمز</span><span class="sku">4402.F8</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">سیلندر ترمز چرخ عقب پژو ۲۰۶</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۴۹۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-oem">اصلی</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/box.svg" alt="پمپ ترمز" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>پمپ ترمز</span><span class="sku">4601.K5</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">پمپ ترمز اصلی پژو ۲۰۶ (ABS)</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۳٬۷۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/brake-pad.svg" alt="سنسور سایش لنت" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>لوازم جانبی</span><span class="sku">4545.96</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">سیم سنسور سایش لنت جلو پژو ۲۰۶</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><strong>۱۸۵٬۰۰۰ <small>تومان</small></strong></div>
+                      <button class="btn-cart" type="button" aria-label="افزودن به سبد خرید"><i class="bi bi-bag-plus" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <nav class="mt-5" aria-label="صفحه‌بندی محصولات">
+              <ul class="pagination justify-content-center flex-wrap">
+                <li class="page-item disabled"><span class="page-link"><i class="bi bi-chevron-right" aria-hidden="true"></i><span class="visually-hidden">قبلی</span></span></li>
+                <li class="page-item active" aria-current="page"><span class="page-link">۱</span></li>
+                <li class="page-item"><a class="page-link" href="#">۲</a></li>
+                <li class="page-item"><a class="page-link" href="#">۳</a></li>
+                <li class="page-item disabled"><span class="page-link">…</span></li>
+                <li class="page-item"><a class="page-link" href="#">۱۸</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-left" aria-hidden="true"></i><span class="visually-hidden">بعدی</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4">
+          <a class="brand" href="index.html">
+            <span class="brand-mark"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></span>
+            <span class="brand-text">تتا یدک<small>قطعات اصلی خودرو</small></span>
+          </a>
+          <p class="footer-about">فروشگاه تخصصی قطعات یدکی خودروهای داخلی و خارجی با ضمانت اصالت کالا، قیمت منصفانه و ارسال سریع به سراسر ایران.</p>
+          <ul class="footer-links footer-contact">
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i>تهران، خیابان امین‌حضور، پاساژ لوازم یدکی، پلاک ۱۲</li>
+            <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+982112345678" class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:info@tetayadak.ir">info@tetayadak.ir</a></li>
+          </ul>
+          <div class="social">
+            <a href="#" aria-label="اینستاگرام"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="تلگرام"><i class="bi bi-telegram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="واتس‌اپ"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+            <a href="#" aria-label="لینکدین"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="footer-title">دسترسی سریع</h2>
+          <ul class="footer-links">
+            <li><a href="shop.html">فروشگاه</a></li>
+            <li><a href="shop.html#offers">پیشنهادهای ویژه</a></li>
+            <li><a href="index.html#brands">برندهای خودرو</a></li>
+            <li><a href="index.html#blog">مجله خودرو</a></li>
+            <li><a href="about.html">درباره ما</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="footer-title">خدمات مشتریان</h2>
+          <ul class="footer-links">
+            <li><a href="account.html#orders">پیگیری سفارش</a></li>
+            <li><a href="contact.html#faq">سوالات متداول</a></li>
+            <li><a href="contact.html">رویه بازگشت کالا</a></li>
+            <li><a href="contact.html">شرایط ارسال</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-lg-4">
+          <h2 class="footer-title">مجوزها و نمادها</h2>
+          <div class="trust-badges">
+            <a class="trust-badge" href="#"><i class="bi bi-shield-check" aria-hidden="true"></i>نماد اعتماد الکترونیکی</a>
+            <a class="trust-badge" href="#"><i class="bi bi-award" aria-hidden="true"></i>ساماندهی کسب‌وکار</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <p class="m-0">© ۱۴۰۵ — تمامی حقوق برای فروشگاه تتا یدک محفوظ است.</p>
+        <div class="payments" aria-label="روش‌های پرداخت">
+          <i class="bi bi-credit-card-2-front" aria-hidden="true"></i>
+          <i class="bi bi-wallet2" aria-hidden="true"></i>
+          <i class="bi bi-bank" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile bottom navigation -->
+  <nav class="mobile-nav d-lg-none" aria-label="ناوبری سریع">
+    <a class="mobile-nav-link" href="index.html"><i class="bi bi-house" aria-hidden="true"></i>خانه</a>
+    <button class="mobile-nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav" aria-controls="mainNav"><i class="bi bi-grid" aria-hidden="true"></i>دسته‌ها</button>
+    <a class="mobile-nav-link active" aria-current="page" href="shop.html"><i class="bi bi-shop" aria-hidden="true"></i>فروشگاه</a>
+    <a class="mobile-nav-link" href="cart.html"><span class="icon-wrap"><i class="bi bi-bag" aria-hidden="true"></i><span class="count">۳</span></span>سبد خرید</a>
+    <a class="mobile-nav-link" href="account.html"><i class="bi bi-person" aria-hidden="true"></i>حساب من</a>
+  </nav>
+
+  <!-- My garage (vehicle selector) -->
+  <div class="modal fade" id="garageModal" tabindex="-1" aria-labelledby="garageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content" action="shop.html">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5 d-flex align-items-center gap-2" id="garageModalLabel"><i class="bi bi-car-front text-steel" aria-hidden="true"></i>خودروی من</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-sm text-secondary">با انتخاب خودرو، فقط قطعات سازگار با آن را در فروشگاه می‌بینید.</p>
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label" for="gBrand">سازنده</label>
+              <select class="form-select" id="gBrand" name="brand">
+                <option>ایران‌خودرو</option>
+                <option>سایپا</option>
+                <option>مدیران‌خودرو (MVM)</option>
+                <option>تویوتا</option>
+                <option>هیوندای</option>
+                <option>کیا</option>
+                <option>رنو</option>
+              </select>
+            </div>
+            <div class="col-sm-7">
+              <label class="form-label" for="gModel">مدل</label>
+              <select class="form-select" id="gModel" name="model">
+                <option selected>پژو ۲۰۶ تیپ ۵</option>
+                <option>پژو ۲۰۷</option>
+                <option>پژو پارس</option>
+                <option>سمند</option>
+                <option>دنا پلاس</option>
+                <option>رانا</option>
+              </select>
+            </div>
+            <div class="col-sm-5">
+              <label class="form-label" for="gYear">سال ساخت</label>
+              <select class="form-select" id="gYear" name="year">
+                <option>۱۴۰۴</option>
+                <option>۱۴۰۳</option>
+                <option selected>۱۴۰۲</option>
+                <option>۱۴۰۱</option>
+                <option>۱۴۰۰</option>
+                <option>۱۳۹۹</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-soft" data-bs-dismiss="modal">انصراف</button>
+          <button type="submit" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> ذخیره و نمایش قطعات</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

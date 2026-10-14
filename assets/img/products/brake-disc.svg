@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <circle cx="120" cy="120" r="86" fill="#C9D8F1"/>
+  <circle cx="120" cy="120" r="86" stroke="#517AAB" stroke-width="6"/>
+  <circle cx="120" cy="120" r="66" stroke="#517AAB" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>
+  <g fill="#517AAB">
+    <circle cx="170" cy="120" r="4.5"/><circle cx="155.4" cy="155.4" r="4.5"/>
+    <circle cx="120" cy="170" r="4.5"/><circle cx="84.6" cy="155.4" r="4.5"/>
+    <circle cx="70" cy="120" r="4.5"/><circle cx="84.6" cy="84.6" r="4.5"/>
+    <circle cx="120" cy="70" r="4.5"/><circle cx="155.4" cy="84.6" r="4.5"/>
+  </g>
+  <circle cx="120" cy="120" r="36" fill="#FCFDFF" stroke="#0A1057" stroke-width="6"/>
+  <g fill="#0A1057">
+    <circle cx="120" cy="99" r="4"/><circle cx="140" cy="113.5" r="4"/>
+    <circle cx="132.3" cy="137" r="4"/><circle cx="107.7" cy="137" r="4"/>
+    <circle cx="100" cy="113.5" r="4"/>
+  </g>
+  <circle cx="120" cy="120" r="9" fill="#0A1057"/>
+  <rect x="152" y="34" width="36" height="70" rx="14" fill="#0A1057" transform="rotate(38 170 69)"/>
+  <rect x="163" y="50" width="14" height="30" rx="7" fill="#517AAB" transform="rotate(38 170 65)"/>
+</svg>
