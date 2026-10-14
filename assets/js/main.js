@@ -51,6 +51,42 @@
     });
   });
 
+  // Shop mega menu: open on hover (desktop), click stays for mobile
+  const shopNav = document.querySelector('.header-nav .nav-shop');
+  if (shopNav) {
+    const toggle = shopNav.querySelector('[data-bs-toggle="dropdown"]');
+    const mq = window.matchMedia('(min-width: 992px)');
+    let hideTimer;
+
+    const getDropdown = () =>
+      window.bootstrap && toggle
+        ? window.bootstrap.Dropdown.getOrCreateInstance(toggle)
+        : null;
+
+    const openMenu = () => {
+      clearTimeout(hideTimer);
+      const dd = getDropdown();
+      if (dd) dd.show();
+      else shopNav.classList.add('show');
+    };
+
+    const scheduleClose = () => {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => {
+        const dd = getDropdown();
+        if (dd) dd.hide();
+        else shopNav.classList.remove('show');
+      }, 120);
+    };
+
+    shopNav.addEventListener('mouseenter', () => {
+      if (mq.matches) openMenu();
+    });
+    shopNav.addEventListener('mouseleave', () => {
+      if (mq.matches) scheduleClose();
+    });
+  }
+
   // Horizontal scroller buttons (RTL: "next" scrolls toward the left)
   document.querySelectorAll('[data-scroll]').forEach((btn) => {
     btn.addEventListener('click', () => {

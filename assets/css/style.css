@@ -773,6 +773,17 @@ img, svg { max-width: 100%; height: auto; }
     border-radius: 0 0 var(--tp-radius-lg) var(--tp-radius-lg);
     box-shadow: var(--tp-shadow-lg);
   }
+
+  /* باز شدن زیرمنوی فروشگاه با هاور */
+  .header-nav .nav-shop:hover > .dropdown-menu,
+  .header-nav .nav-shop.show > .dropdown-menu {
+    display: block;
+  }
+
+  .header-nav .nav-shop > .dropdown-toggle::after {
+    margin-right: .35rem;
+    vertical-align: .15em;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -1001,7 +1012,11 @@ img, svg { max-width: 100%; height: auto; }
   grid-auto-flow: column;
   grid-auto-columns: calc((100% - (var(--cats-visible) - 1) * var(--cats-gap)) / var(--cats-visible));
   gap: var(--cats-gap);
+  /* فضای هاور translateY تا از بالا کلیپ نشود */
+  margin-block: -.5rem;
+  padding-block: .5rem;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-inline: contain;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
