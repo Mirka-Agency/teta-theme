@@ -822,30 +822,8 @@ img, svg { max-width: 100%; height: auto; }
 
 .hero > .container { position: relative; }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .4rem .95rem;
-  font-size: .8125rem;
-  font-weight: 600;
-  color: var(--tp-steel-700);
-  background: #fff;
-  border: 1px solid var(--tp-border);
-  border-radius: 999px;
-  box-shadow: var(--tp-shadow-sm);
-}
-
-.hero-badge .dot {
-  width: 8px;
-  height: 8px;
-  background: var(--tp-success);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(19, 121, 91, .15);
-}
-
 .hero-title {
-  margin-block: 1.25rem 1rem;
+  margin-block: 0 1rem;
   font-size: clamp(1.9rem, 1.1rem + 3vw, 3.15rem);
   font-weight: 900;
   line-height: 1.4;
@@ -853,7 +831,6 @@ img, svg { max-width: 100%; height: auto; }
 
 .hero-title .hl {
   color: var(--tp-steel-700);
-  background: linear-gradient(transparent 68%, var(--tp-sky) 68%);
 }
 
 .hero-lead {
