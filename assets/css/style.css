@@ -102,9 +102,19 @@ img, svg { max-width: 100%; height: auto; }
 
 .ltr { direction: ltr; unicode-bidi: isolate; }
 
-.section { padding-block: 4.5rem; }
+.section {
+  padding-block: 4.5rem;
+  background-color: #fff;
+}
+
 .section-sm { padding-block: 3rem; }
-.section-alt { background: var(--tp-sky-50); }
+
+.section-alt {
+  background-color: var(--tp-sky-50);
+  background-image:
+    radial-gradient(920px 340px at 100% 0%, var(--tp-sky-100), transparent 58%),
+    radial-gradient(720px 300px at 0% 100%, rgba(201, 216, 241, .65), transparent 52%);
+}
 
 .section-head {
   display: flex;
@@ -1073,6 +1083,7 @@ img, svg { max-width: 100%; height: auto; }
 
 .features-section {
   position: relative;
+  background-color: #fff;
 }
 
 .features-panel {
