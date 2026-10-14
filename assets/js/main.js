@@ -84,6 +84,74 @@
     });
   });
 
+  // Blog archive: filter posts by category chips
+  document.querySelectorAll('[data-blog-cats]').forEach((nav) => {
+    const grid = document.querySelector('[data-blog-grid]');
+    if (!grid) return;
+
+    const posts = [...grid.querySelectorAll('[data-blog-post]')];
+    const links = [...nav.querySelectorAll('[data-blog-cat]')];
+    const empty = document.querySelector('[data-blog-empty]');
+    const pagination = document.querySelector('[data-blog-pagination]');
+    const validCats = new Set(['all', ...posts.map((post) => post.dataset.category).filter(Boolean)]);
+
+    const counts = posts.reduce((acc, post) => {
+      const cat = post.dataset.category;
+      if (!cat) return acc;
+      acc[cat] = (acc[cat] || 0) + 1;
+      acc.all += 1;
+      return acc;
+    }, { all: 0 });
+
+    nav.querySelectorAll('[data-blog-cat-count]').forEach((el) => {
+      const key = el.dataset.blogCatCount;
+      if (counts[key] != null) el.textContent = faNumber.format(counts[key]);
+    });
+
+    const setCategory = (cat, { push = false } = {}) => {
+      const next = validCats.has(cat) ? cat : 'all';
+      let visible = 0;
+
+      posts.forEach((post) => {
+        const show = next === 'all' || post.dataset.category === next;
+        post.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      links.forEach((link) => {
+        const active = link.dataset.blogCat === next;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+
+      if (empty) empty.hidden = visible > 0;
+      if (pagination) pagination.hidden = next !== 'all';
+
+      const url = new URL(window.location.href);
+      if (next === 'all') url.searchParams.delete('cat');
+      else url.searchParams.set('cat', next);
+
+      const method = push ? 'pushState' : 'replaceState';
+      history[method]({ cat: next }, '', url);
+    };
+
+    nav.addEventListener('click', (event) => {
+      const link = event.target.closest('[data-blog-cat]');
+      if (!link || !nav.contains(link)) return;
+      event.preventDefault();
+      setCategory(link.dataset.blogCat || 'all', { push: true });
+    });
+
+    window.addEventListener('popstate', (event) => {
+      const cat = event.state?.cat || new URL(window.location.href).searchParams.get('cat') || 'all';
+      setCategory(cat);
+    });
+
+    const initial = new URL(window.location.href).searchParams.get('cat') || 'all';
+    setCategory(initial);
+  });
+
   // Shop mega menu: hover on desktop only; click navigates to shop.html
   const shopNav = document.querySelector('.header-nav .nav-shop');
   if (shopNav) {

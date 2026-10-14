@@ -167,55 +167,55 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-lg-9">
-            <nav class="blog-cats" aria-label="دسته‌بندی مقالات">
+            <nav class="blog-cats" data-blog-cats aria-label="دسته‌بندی مقالات">
               <ul class="blog-cat-list">
                 <li>
-                  <a href="blog.html" aria-current="page">
+                  <a href="blog.html" data-blog-cat="all" aria-current="page">
                     <span class="blog-cat-icon" aria-hidden="true"><i class="bi bi-grid"></i></span>
                     <span class="blog-cat-label">همه مقالات</span>
-                    <span class="blog-cat-count">۳۰</span>
+                    <span class="blog-cat-count" data-blog-cat-count="all">۶</span>
                   </a>
                 </li>
                 <li>
-                  <a href="blog.html">
+                  <a href="blog.html?cat=maintenance" data-blog-cat="maintenance">
                     <span class="blog-cat-icon" aria-hidden="true"><i class="bi bi-snow"></i></span>
                     <span class="blog-cat-label">نگهداری کولر</span>
-                    <span class="blog-cat-count">۸</span>
+                    <span class="blog-cat-count" data-blog-cat-count="maintenance">۱</span>
                   </a>
                 </li>
                 <li>
-                  <a href="blog.html">
+                  <a href="blog.html?cat=refrigerant" data-blog-cat="refrigerant">
                     <span class="blog-cat-icon" aria-hidden="true"><i class="bi bi-droplet"></i></span>
                     <span class="blog-cat-label">شارژ گاز</span>
-                    <span class="blog-cat-count">۵</span>
+                    <span class="blog-cat-count" data-blog-cat-count="refrigerant">۱</span>
                   </a>
                 </li>
                 <li>
-                  <a href="blog.html">
+                  <a href="blog.html?cat=compressor" data-blog-cat="compressor">
                     <span class="blog-cat-icon" aria-hidden="true"><i class="bi bi-gear"></i></span>
                     <span class="blog-cat-label">کمپرسور و کلاچ</span>
-                    <span class="blog-cat-count">۶</span>
+                    <span class="blog-cat-count" data-blog-cat-count="compressor">۱</span>
                   </a>
                 </li>
                 <li>
-                  <a href="blog.html">
+                  <a href="blog.html?cat=cabin" data-blog-cat="cabin">
                     <span class="blog-cat-icon" aria-hidden="true"><i class="bi bi-wind"></i></span>
                     <span class="blog-cat-label">فیلتر و تهویه کابین</span>
-                    <span class="blog-cat-count">۴</span>
+                    <span class="blog-cat-count" data-blog-cat-count="cabin">۱</span>
                   </a>
                 </li>
                 <li>
-                  <a href="blog.html">
+                  <a href="blog.html?cat=diagnose" data-blog-cat="diagnose">
                     <span class="blog-cat-icon" aria-hidden="true"><i class="bi bi-search"></i></span>
                     <span class="blog-cat-label">عیب‌یابی</span>
-                    <span class="blog-cat-count">۷</span>
+                    <span class="blog-cat-count" data-blog-cat-count="diagnose">۲</span>
                   </a>
                 </li>
               </ul>
             </nav>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
+            <div class="row row-cols-1 row-cols-md-3 g-4" data-blog-grid>
+              <div class="col" data-blog-post data-category="cabin">
                 <article class="post-card">
                   <div class="post-media"><img src="assets/img/products/cabin-filter.svg" alt="" width="160" height="160" loading="lazy"></div>
                   <div class="post-body">
@@ -225,7 +225,7 @@
                   </div>
                 </article>
               </div>
-              <div class="col">
+              <div class="col" data-blog-post data-category="refrigerant">
                 <article class="post-card">
                   <div class="post-media"><img src="assets/img/products/refrigerant.svg" alt="" width="160" height="160" loading="lazy"></div>
                   <div class="post-body">
@@ -235,7 +235,7 @@
                   </div>
                 </article>
               </div>
-              <div class="col">
+              <div class="col" data-blog-post data-category="compressor">
                 <article class="post-card">
                   <div class="post-media"><img src="assets/img/products/compressor.svg" alt="" width="160" height="160" loading="lazy"></div>
                   <div class="post-body">
@@ -245,7 +245,7 @@
                   </div>
                 </article>
               </div>
-              <div class="col">
+              <div class="col" data-blog-post data-category="diagnose">
                 <article class="post-card">
                   <div class="post-media"><img src="assets/img/products/blower-fan.svg" alt="" width="160" height="160" loading="lazy"></div>
                   <div class="post-body">
@@ -255,7 +255,7 @@
                   </div>
                 </article>
               </div>
-              <div class="col">
+              <div class="col" data-blog-post data-category="maintenance">
                 <article class="post-card">
                   <div class="post-media"><img src="assets/img/products/condenser.svg" alt="" width="160" height="160" loading="lazy"></div>
                   <div class="post-body">
@@ -265,7 +265,7 @@
                   </div>
                 </article>
               </div>
-              <div class="col">
+              <div class="col" data-blog-post data-category="diagnose">
                 <article class="post-card">
                   <div class="post-media"><img src="assets/img/products/expansion-valve.svg" alt="" width="160" height="160" loading="lazy"></div>
                   <div class="post-body">
@@ -277,7 +277,9 @@
               </div>
             </div>
 
-            <nav class="mt-5" aria-label="صفحه‌بندی مقالات">
+            <p class="blog-empty text-secondary text-center py-5 mb-0" data-blog-empty hidden>مقاله‌ای در این دسته‌بندی یافت نشد.</p>
+
+            <nav class="mt-5" data-blog-pagination aria-label="صفحه‌بندی مقالات">
               <ul class="pagination justify-content-center">
                 <li class="page-item disabled"><span class="page-link"><i class="bi bi-chevron-right" aria-hidden="true"></i></span></li>
                 <li class="page-item active"><span class="page-link">۱</span></li>
