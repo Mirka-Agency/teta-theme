@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 64" role="img" aria-label="SAIPA">
+  <circle cx="30" cy="32" r="20" fill="#0A1057"/>
+  <path d="M30 16l6 10H24l6-10zm0 32l-6-10h12l-6 10zm-14-16l10-6v12l-10-6zm28 0l-10-6v12l10-6z" fill="#C9D8F1"/>
+  <text x="58" y="40" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#0A1057">SAIPA</text>
+</svg>

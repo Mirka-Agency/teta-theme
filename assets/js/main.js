@@ -51,6 +51,16 @@
     });
   });
 
+  // Horizontal scroller buttons (RTL: "next" scrolls toward the left)
+  document.querySelectorAll('[data-scroll]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const track = document.querySelector(btn.dataset.scroll);
+      if (!track) return;
+      const direction = btn.dataset.dir === 'next' ? -1 : 1;
+      track.scrollBy({ left: direction * track.clientWidth * 0.75, behavior: 'smooth' });
+    });
+  });
+
   // Range input live output
   document.querySelectorAll('[data-range-output]').forEach((range) => {
     const output = document.querySelector(range.dataset.rangeOutput);
