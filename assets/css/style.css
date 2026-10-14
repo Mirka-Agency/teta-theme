@@ -1297,9 +1297,18 @@ img, svg { max-width: 100%; height: auto; }
   scroll-margin-top: calc(var(--tp-header-offset) + 1rem);
 }
 
-.post-toc.sticky-lg-top {
+.blog-sidebar.sticky-lg-top {
   top: calc(var(--tp-header-offset) + .75rem);
   z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .blog-sidebar.sticky-lg-top {
+    max-height: calc(100vh - var(--tp-header-offset) - 1.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
 }
 
 .post-toc-list {
