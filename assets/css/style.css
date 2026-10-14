@@ -116,21 +116,35 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  margin-bottom: .35rem;
-  font-size: .8125rem;
-  font-weight: 700;
-  color: var(--tp-steel-700);
+  position: relative;
+  display: inline-block;
+  margin-bottom: .65rem;
+  padding: 0 0 .35rem;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--tp-navy);
 }
 
 .section-eyebrow::before {
+  content: none;
+}
+
+.section-eyebrow::after {
   content: "";
-  width: 18px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
   height: 2px;
   border-radius: 2px;
-  background: currentColor;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--tp-steel) 18%,
+    var(--tp-navy) 55%,
+    transparent 100%
+  );
 }
 
 .section-title {
