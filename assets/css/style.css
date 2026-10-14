@@ -1,5 +1,5 @@
 /* ==========================================================================
-   تتا یدک — قالب فروشگاهی لوازم یدکی خودرو
+   تتا (TETA) — فروشگاه لوازم یدکی تهویه خودروهای ایرانی و خارجی
    Bootstrap 5.3 (RTL) · تم روشن · مینیمال
    --------------------------------------------------------------------------
    فهرست:
@@ -474,12 +474,23 @@ img, svg { max-width: 100%; height: auto; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: .6rem;
+  gap: .75rem;
   flex: none;
   color: var(--tp-navy);
 }
 
 .brand:hover { color: var(--tp-navy); }
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 36px;
+  flex: none;
+}
+
+@media (min-width: 992px) {
+  .brand-logo { height: 42px; }
+}
 
 .brand-mark {
   display: grid;
