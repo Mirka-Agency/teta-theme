@@ -1269,8 +1269,8 @@ img, svg { max-width: 100%; height: auto; }
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 92px;
-  padding: .75rem 1rem;
+  height: 88px;
+  padding: 1rem;
   background: #fff;
   border: 1px solid var(--tp-border);
   border-radius: var(--tp-radius);
@@ -1278,11 +1278,10 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .brand-tile img {
-  width: auto;
-  max-width: 100%;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
-  opacity: .85;
+  opacity: .9;
   transition: opacity .2s, transform .2s;
 }
 
@@ -1294,7 +1293,7 @@ img, svg { max-width: 100%; height: auto; }
 
 .brand-tile:hover img {
   opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .post-card {
