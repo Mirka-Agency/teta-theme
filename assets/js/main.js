@@ -135,4 +135,114 @@
   // Open a tab from the URL hash (e.g. account.html#register)
   const hashTab = window.location.hash && document.querySelector(`[data-bs-toggle="pill"][data-bs-target="${window.location.hash}"], [data-bs-toggle="tab"][data-bs-target="${window.location.hash}"]`);
   if (hashTab && window.bootstrap) window.bootstrap.Tab.getOrCreateInstance(hashTab).show();
+
+  // Themed select popup (replaces native option list)
+  const closeAllSelects = (except) => {
+    document.querySelectorAll('.tp-select.is-open').forEach((wrap) => {
+      if (wrap === except) return;
+      wrap.classList.remove('is-open');
+      const trigger = wrap.querySelector('.tp-select-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  document.querySelectorAll('select.form-select').forEach((select) => {
+    if (select.closest('.tp-select') || select.dataset.native === 'true') return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'tp-select';
+    select.parentNode.insertBefore(wrap, select);
+    wrap.appendChild(select);
+
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'tp-select-trigger';
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+    if (select.id) trigger.id = `${select.id}-trigger`;
+    trigger.innerHTML = '<span class="tp-select-label"></span>';
+
+    const menu = document.createElement('ul');
+    menu.className = 'tp-select-menu';
+    menu.setAttribute('role', 'listbox');
+    if (select.id) menu.id = `${select.id}-listbox`;
+    trigger.setAttribute('aria-controls', menu.id || '');
+
+    const label = trigger.querySelector('.tp-select-label');
+
+    const syncLabel = () => {
+      const selected = select.options[select.selectedIndex];
+      label.textContent = selected ? selected.textContent.trim() : '';
+    };
+
+    const buildOptions = () => {
+      menu.innerHTML = '';
+      Array.from(select.options).forEach((option, index) => {
+        const item = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tp-select-option';
+        btn.setAttribute('role', 'option');
+        btn.dataset.index = String(index);
+        btn.textContent = option.textContent.trim();
+        btn.disabled = option.disabled;
+        if (option.selected) {
+          btn.classList.add('is-selected');
+          btn.setAttribute('aria-selected', 'true');
+        } else {
+          btn.setAttribute('aria-selected', 'false');
+        }
+        btn.addEventListener('click', () => {
+          select.selectedIndex = index;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          syncLabel();
+          buildOptions();
+          closeAllSelects();
+          trigger.focus();
+        });
+        item.appendChild(btn);
+        menu.appendChild(item);
+      });
+    };
+
+    trigger.addEventListener('click', () => {
+      const willOpen = !wrap.classList.contains('is-open');
+      closeAllSelects(willOpen ? wrap : null);
+      wrap.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', String(willOpen));
+    });
+
+    select.addEventListener('change', () => {
+      syncLabel();
+      buildOptions();
+    });
+
+    if (select.form) {
+      select.form.addEventListener('reset', () => {
+        requestAnimationFrame(() => {
+          syncLabel();
+          buildOptions();
+        });
+      });
+    }
+
+    if (select.disabled) {
+      trigger.disabled = true;
+      wrap.classList.add('is-disabled');
+    }
+
+    wrap.appendChild(trigger);
+    wrap.appendChild(menu);
+    syncLabel();
+    buildOptions();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.tp-select')) return;
+    closeAllSelects();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAllSelects();
+  });
 })();
