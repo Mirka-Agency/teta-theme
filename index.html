@@ -537,17 +537,27 @@
     </section>
 
     <!-- Car brands -->
-    <section class="section section-alt" id="brands" aria-label="برندهای خودرو">
+    <section class="section section-alt" id="brands" aria-labelledby="brandsTitle">
       <div class="container">
-        <div class="row row-cols-2 row-cols-sm-4 row-cols-lg-8 g-3 brands-row">
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="ایران‌خودرو"><img src="assets/img/brands/ikco.svg" alt="IKCO" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="سایپا"><img src="assets/img/brands/saipa.svg" alt="SAIPA" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="ام‌وی‌ام"><img src="assets/img/brands/mvm.svg" alt="MVM" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="تویوتا"><img src="assets/img/brands/toyota.svg" alt="Toyota" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="هیوندای"><img src="assets/img/brands/hyundai.svg" alt="Hyundai" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="کیا"><img src="assets/img/brands/kia.svg" alt="Kia" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="رنو"><img src="assets/img/brands/renault.svg" alt="Renault" width="64" height="64" loading="lazy"></a></div>
-          <div class="col"><a class="brand-tile" href="shop.html" aria-label="پژو"><img src="assets/img/brands/peugeot.svg" alt="Peugeot" width="64" height="64" loading="lazy"></a></div>
+        <div class="section-head brands-head">
+          <div>
+            <span class="section-eyebrow">خودروی شما</span>
+            <h2 class="section-title" id="brandsTitle">برندهای خودرو</h2>
+          </div>
+          <div class="scroller-nav brands-nav">
+            <button type="button" data-scroll="#brandsScroller" data-dir="prev" aria-label="قبلی"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <button type="button" data-scroll="#brandsScroller" data-dir="next" aria-label="بعدی"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <div class="brands-scroller" id="brandsScroller" tabindex="0" aria-label="برندهای خودرو">
+          <a class="brand-tile" href="shop.html" aria-label="ایران‌خودرو"><img src="assets/img/brands/ikco.svg" alt="IKCO" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="سایپا"><img src="assets/img/brands/saipa.svg" alt="SAIPA" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="ام‌وی‌ام"><img src="assets/img/brands/mvm.svg" alt="MVM" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="تویوتا"><img src="assets/img/brands/toyota.svg" alt="Toyota" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="هیوندای"><img src="assets/img/brands/hyundai.svg" alt="Hyundai" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="کیا"><img src="assets/img/brands/kia.svg" alt="Kia" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="رنو"><img src="assets/img/brands/renault.svg" alt="Renault" width="64" height="64" loading="lazy"></a>
+          <a class="brand-tile" href="shop.html" aria-label="پژو"><img src="assets/img/brands/peugeot.svg" alt="Peugeot" width="64" height="64" loading="lazy"></a>
         </div>
       </div>
     </section>
