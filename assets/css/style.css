@@ -1343,16 +1343,22 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .hero-visual > img {
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
   display: block;
-  width: 74%;
-  margin: 13%;
+  width: 68%;
+  object-fit: contain;
+  background: transparent;
   filter: drop-shadow(0 28px 34px rgba(10, 16, 87, .25));
+  transform: translate(-50%, -50%);
   animation: tp-float 6s ease-in-out infinite;
 }
 
 .hero-chip {
   position: absolute;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: .65rem;
@@ -1378,12 +1384,12 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .hero-chip small { display: block; font-weight: 500; color: var(--tp-muted); }
-.hero-chip.is-top { top: 10%; right: -4%; }
-.hero-chip.is-bottom { bottom: 12%; left: -4%; }
+.hero-chip.is-top { top: 4%; right: -4%; }
+.hero-chip.is-bottom { bottom: 8%; left: -4%; }
 
 @keyframes tp-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, calc(-50% - 10px)); }
 }
 
 @media (max-width: 991.98px) {
