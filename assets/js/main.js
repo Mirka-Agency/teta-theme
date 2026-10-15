@@ -51,13 +51,13 @@
     });
   });
 
-  // Blog single: build TOC from article h2 headings
+  // Blog single: build TOC from article h2 headings + scroll spy
   document.querySelectorAll('[data-toc]').forEach((toc) => {
     const list = toc.querySelector('[data-toc-list]');
     const content = document.querySelector('.post-content');
     if (!list || !content) return;
 
-    const headings = content.querySelectorAll('h2');
+    const headings = [...content.querySelectorAll('h2')];
     if (!headings.length) {
       toc.hidden = true;
       return;
@@ -73,7 +73,7 @@
       return base || `section-${index + 1}`;
     };
 
-    headings.forEach((heading, index) => {
+    const links = headings.map((heading, index) => {
       if (!heading.id) heading.id = slugify(heading.textContent || '', index);
       const item = document.createElement('li');
       const link = document.createElement('a');
@@ -81,7 +81,54 @@
       link.textContent = heading.textContent.trim();
       item.appendChild(link);
       list.appendChild(item);
+      return link;
     });
+
+    const setActive = (id) => {
+      links.forEach((link) => {
+        const active = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const spyOffset = () => {
+      const raw = getComputedStyle(document.documentElement).getPropertyValue('--tp-header-offset');
+      const header = Number.parseFloat(raw) || 0;
+      return (header + 1.25) * 16;
+    };
+
+    const updateFromScroll = () => {
+      const marker = window.scrollY + spyOffset();
+      let current = headings[0];
+
+      headings.forEach((heading) => {
+        const top = heading.getBoundingClientRect().top + window.scrollY;
+        if (top <= marker) current = heading;
+      });
+
+      if (current?.id) setActive(current.id);
+    };
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateFromScroll();
+        ticking = false;
+      });
+    }, { passive: true });
+
+    list.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+      const id = link.getAttribute('href').slice(1);
+      if (id) setActive(id);
+    });
+
+    updateFromScroll();
   });
 
   // Blog archive: filter posts by category chips
