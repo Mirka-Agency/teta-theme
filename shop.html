@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>فیلتر کابین و لوازم کولر | تتا</title>
-  <meta name="description" content="فهرست فیلتر کابین و لوازم یدکی تهویه خودرو با فیلتر بر اساس خودرو، برند و قیمت.">
+  <title>فروشگاه لوازم کولر و تهویه | تتا</title>
+  <meta name="description" content="خرید آنلاین لوازم یدکی تهویه و کولر خودرو — کمپرسور، کندانسور، شیر انبساط و قطعات اصلی با فیلتر بر اساس خودرو، برند و قیمت.">
   <meta name="theme-color" content="#0A1057">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -143,11 +143,10 @@
         <nav aria-label="مسیر صفحه">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">خانه</a></li>
-            <li class="breadcrumb-item"><a href="shop.html">فروشگاه</a></li>
-            <li class="breadcrumb-item active" aria-current="page">فیلتر کابین</li>
+            <li class="breadcrumb-item active" aria-current="page">فروشگاه</li>
           </ol>
         </nav>
-        <h1>فیلتر کابین</h1>
+        <h1>فروشگاه</h1>
       </div>
     </div>
 
@@ -162,19 +161,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#shopFilters" aria-label="بستن فیلترها"></button>
               </div>
               <div class="offcanvas-body d-block">
-                <form action="shop.html">
+                <form action="shop.html" data-shop-filters>
                   <div class="filter-block">
                     <div class="filter-title">خودروی شما</div>
                     <div class="d-grid gap-2">
                       <label class="visually-hidden" for="flBrand">سازنده</label>
-                      <select class="form-select" id="flBrand" name="brand">
+                      <select class="form-select" id="flBrand" name="brand" data-filter-chip data-filter-label="سازنده">
+                        <option value="">همه سازنده‌ها</option>
                         <option>ایران‌خودرو</option>
                         <option>سایپا</option>
                         <option>مدیران‌خودرو</option>
                       </select>
                       <label class="visually-hidden" for="flModel">مدل</label>
-                      <select class="form-select" id="flModel" name="model">
-                        <option selected>پژو ۲۰۶ تیپ ۵</option>
+                      <select class="form-select" id="flModel" name="model" data-filter-chip data-filter-label="مدل">
+                        <option value="">همه مدل‌ها</option>
+                        <option>پژو ۲۰۶ تیپ ۵</option>
                         <option>پژو پارس</option>
                         <option>سمند</option>
                       </select>
@@ -184,50 +185,50 @@
                   <div class="filter-block">
                     <div class="filter-title">دسته‌بندی</div>
                     <ul class="filter-list">
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c1" checked><label class="form-check-label" for="c1">کندانسور</label><span class="count">۱۸۶</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c2" checked><label class="form-check-label" for="c2">کمپرسور</label><span class="count">۲۱۴</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c3"><label class="form-check-label" for="c3">ست کلاچ کمپرسور</label><span class="count">۷۸</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c4"><label class="form-check-label" for="c4">بوبین کمپرسور</label><span class="count">۵۴</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c5"><label class="form-check-label" for="c5">کلاچ کمپرسور</label><span class="count">۹۱</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c6"><label class="form-check-label" for="c6">پولی کمپرسور</label><span class="count">۶۳</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c7"><label class="form-check-label" for="c7">رسیور درایر</label><span class="count">۴۷</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c8"><label class="form-check-label" for="c8">سوئیچ فشار</label><span class="count">۳۸</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c9"><label class="form-check-label" for="c9">شیر انبساط</label><span class="count">۵۲</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c10"><label class="form-check-label" for="c10">موتور فن</label><span class="count">۱۲۹</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c11"><label class="form-check-label" for="c11">کاسه نمد</label><span class="count">۴۱</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c12"><label class="form-check-label" for="c12">بلبرینگ</label><span class="count">۸۸</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c1" data-filter-chip><label class="form-check-label" for="c1">کندانسور</label><span class="count">۱۸۶</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c2" data-filter-chip><label class="form-check-label" for="c2">کمپرسور</label><span class="count">۲۱۴</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c3" data-filter-chip><label class="form-check-label" for="c3">ست کلاچ کمپرسور</label><span class="count">۷۸</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c4" data-filter-chip><label class="form-check-label" for="c4">بوبین کمپرسور</label><span class="count">۵۴</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c5" data-filter-chip><label class="form-check-label" for="c5">کلاچ کمپرسور</label><span class="count">۹۱</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c6" data-filter-chip><label class="form-check-label" for="c6">پولی کمپرسور</label><span class="count">۶۳</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c7" data-filter-chip><label class="form-check-label" for="c7">رسیور درایر</label><span class="count">۴۷</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c8" data-filter-chip><label class="form-check-label" for="c8">سوئیچ فشار</label><span class="count">۳۸</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c9" data-filter-chip><label class="form-check-label" for="c9">شیر انبساط</label><span class="count">۵۲</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c10" data-filter-chip><label class="form-check-label" for="c10">موتور فن</label><span class="count">۱۲۹</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c11" data-filter-chip><label class="form-check-label" for="c11">کاسه نمد</label><span class="count">۴۱</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="c12" data-filter-chip><label class="form-check-label" for="c12">بلبرینگ</label><span class="count">۸۸</span></li>
                     </ul>
                   </div>
 
                   <div class="filter-block">
                     <div class="filter-title">برند سازنده قطعه</div>
                     <ul class="filter-list">
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b1"><label class="form-check-label" for="b1">ایساکو</label><span class="count">۶۲</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b2"><label class="form-check-label" for="b2">بوش</label><span class="count">۴۸</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b3"><label class="form-check-label" for="b3">والئو</label><span class="count">۳۷</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b4"><label class="form-check-label" for="b4">تی‌آر‌دبلیو</label><span class="count">۲۹</span></li>
-                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b5"><label class="form-check-label" for="b5">بوش (Bosch)</label><span class="count">۵۵</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b1" data-filter-chip><label class="form-check-label" for="b1">ایساکو</label><span class="count">۶۲</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b2" data-filter-chip><label class="form-check-label" for="b2">بوش</label><span class="count">۴۸</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b3" data-filter-chip><label class="form-check-label" for="b3">والئو</label><span class="count">۳۷</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b4" data-filter-chip><label class="form-check-label" for="b4">تی‌آر‌دبلیو</label><span class="count">۲۹</span></li>
+                      <li class="form-check"><input class="form-check-input" type="checkbox" id="b5" data-filter-chip><label class="form-check-label" for="b5">بوش (Bosch)</label><span class="count">۵۵</span></li>
                     </ul>
                   </div>
 
                   <div class="filter-block">
                     <label class="filter-title" for="priceRange">حداکثر قیمت</label>
-                    <input type="range" class="form-range" id="priceRange" name="max" min="100000" max="10000000" step="100000" value="6000000" data-range-output="#priceOut">
-                    <div class="price-out"><span>از ۱۰۰٬۰۰۰</span><span>تا <strong id="priceOut">۶٬۰۰۰٬۰۰۰</strong> تومان</span></div>
+                    <input type="range" class="form-range" id="priceRange" name="max" min="100000" max="10000000" step="100000" value="10000000" data-range-output="#priceOut" data-filter-chip data-filter-label="حداکثر قیمت">
+                    <div class="price-out"><span>از ۱۰۰٬۰۰۰</span><span>تا <strong id="priceOut">۱۰٬۰۰۰٬۰۰۰</strong> تومان</span></div>
                   </div>
 
                   <div class="filter-block">
                     <div class="form-check form-switch d-flex justify-content-between align-items-center p-0 mb-3">
                       <label class="form-check-label fs-sm fw-semibold" for="onlyStock">فقط کالاهای موجود</label>
-                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlyStock" checked>
+                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlyStock" data-filter-chip>
                     </div>
                     <div class="form-check form-switch d-flex justify-content-between align-items-center p-0 mb-3">
                       <label class="form-check-label fs-sm fw-semibold" for="onlyOem">فقط قطعات اصلی (OEM)</label>
-                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlyOem">
+                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlyOem" data-filter-chip>
                     </div>
                     <div class="form-check form-switch d-flex justify-content-between align-items-center p-0">
                       <label class="form-check-label fs-sm fw-semibold" for="onlySale">فقط تخفیف‌دار</label>
-                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlySale">
+                      <input class="form-check-input m-0" type="checkbox" role="switch" id="onlySale" data-filter-chip>
                     </div>
                   </div>
 
@@ -242,73 +243,45 @@
 
           <!-- Products -->
           <div class="col-lg-9">
-            <div class="garage-bar">
-              <i class="bi bi-check2-circle" aria-hidden="true"></i>
-              <span>نمایش قطعات سازگار با <strong>پژو ۲۰۶ تیپ ۵ — ۱۴۰۲</strong></span>
-              <button class="btn btn-sm btn-white border me-auto" type="button" data-bs-toggle="modal" data-bs-target="#garageModal">تغییر خودرو</button>
-            </div>
-
-            <div class="shop-toolbar">
+            <div class="shop-toolbar" data-shop-sort>
               <button class="btn btn-soft btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#shopFilters" aria-controls="shopFilters"><i class="bi bi-sliders" aria-hidden="true"></i> فیلترها</button>
-              <ul class="sort-links d-none d-md-flex">
+              <ul class="sort-links d-none d-md-flex" role="list">
                 <li class="label"><i class="bi bi-sort-down" aria-hidden="true"></i> مرتب‌سازی:</li>
-                <li><a class="active" href="#" aria-current="true">مرتبط‌ترین</a></li>
-                <li><a href="#">پرفروش‌ترین</a></li>
-                <li><a href="#">ارزان‌ترین</a></li>
-                <li><a href="#">گران‌ترین</a></li>
-                <li><a href="#">جدیدترین</a></li>
+                <li><button class="sort-btn active" type="button" data-sort="relevant" aria-pressed="true">مرتبط‌ترین</button></li>
+                <li><button class="sort-btn" type="button" data-sort="sales" aria-pressed="false">پرفروش‌ترین</button></li>
+                <li><button class="sort-btn" type="button" data-sort="price-asc" aria-pressed="false">ارزان‌ترین</button></li>
+                <li><button class="sort-btn" type="button" data-sort="price-desc" aria-pressed="false">گران‌ترین</button></li>
+                <li><button class="sort-btn" type="button" data-sort="newest" aria-pressed="false">جدیدترین</button></li>
               </ul>
               <div class="d-md-none">
                 <label class="visually-hidden" for="sortMobile">مرتب‌سازی</label>
-                <select class="form-select form-select-sm" id="sortMobile">
-                  <option>مرتبط‌ترین</option>
-                  <option>پرفروش‌ترین</option>
-                  <option>ارزان‌ترین</option>
-                  <option>گران‌ترین</option>
-                  <option>جدیدترین</option>
+                <select class="form-select form-select-sm" id="sortMobile" data-sort-select>
+                  <option value="relevant">مرتبط‌ترین</option>
+                  <option value="sales">پرفروش‌ترین</option>
+                  <option value="price-asc">ارزان‌ترین</option>
+                  <option value="price-desc">گران‌ترین</option>
+                  <option value="newest">جدیدترین</option>
                 </select>
               </div>
-              <span class="fs-sm text-secondary">۱۲ کالا از ۳۲۰</span>
+              <span class="fs-sm text-secondary" data-shop-count>۱۲ کالا از ۳۲۰</span>
             </div>
 
-            <div class="d-flex flex-wrap gap-2 mb-3">
-              <button class="chip" type="button">فیلتر کابین <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span></button>
-              <button class="chip" type="button">کربن‌دار <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span></button>
-              <button class="chip" type="button">فقط موجود <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span></button>
-            </div>
+            <div class="active-filters d-flex flex-wrap gap-2 mb-3" id="activeFilters" hidden></div>
 
-            <div class="row row-cols-2 row-cols-md-3 g-3">
+            <div class="row row-cols-2 row-cols-md-3 g-3" data-shop-grid>
               <div class="col">
                 <article class="product-card">
                   <div class="product-media">
                     <div class="product-badges"><span class="badge-tag badge-sale">۱۵٪</span></div>
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین پژو ۲۰۶" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/compressor.svg" alt="کمپرسور کولر پژو ۲۰۶" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6447.X9</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کربن‌دار پژو ۲۰۶ و رانا</a></h3>
+                    <div class="product-meta"><span>کمپرسور</span><span class="sku">6453.Q6</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">کمپرسور کولر پژو ۲۰۶ تیپ ۵ — ۷H15</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><del>۴۵۰٬۰۰۰</del><strong>۳۸۵٬۰۰۰ <small>تومان</small></strong></div>
-                      <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </article>
-              </div>
-              <div class="col">
-                <article class="product-card">
-                  <div class="product-media">
-                    <div class="product-badges"><span class="badge-tag badge-sale">۱۹٪</span></div>
-                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین سمند" width="240" height="240" loading="lazy">
-                  </div>
-                  <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6479.C9</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین سمند و دنا (استاندارد)</a></h3>
-                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
-                    <div class="product-foot">
-                      <div class="price"><del>۱٬۱۸۰٬۰۰۰</del><strong>۹۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><del>۱۲٬۵۰۰٬۰۰۰</del><strong>۱۰٬۶۲۵٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -319,14 +292,32 @@
                   <div class="product-media">
                     <div class="product-badges"><span class="badge-tag badge-oem">اصلی</span></div>
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین پراید" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین پژو ۲۰۶" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-111</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین پراید، تیبا و ساینا</a></h3>
+                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6447.X9</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کربن‌دار پژو ۲۰۶ و رانا</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۸۶۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۳۸۵٬۰۰۰ <small>تومان</small></strong></div>
+                      <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-sale">۲۰٪</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/refrigerant.svg" alt="گاز R134a" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>گاز کولر</span><span class="sku">R134a-450</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">گاز کولر R134a — ۴۵۰ گرم (با شیر)</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>مناسب اغلب خودروهای سواری</p>
+                    <div class="product-foot">
+                      <div class="price"><del>۴۸۰٬۰۰۰</del><strong>۳۸۴٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -336,14 +327,32 @@
                 <article class="product-card">
                   <div class="product-media">
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر HEPA تویوتا" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/blower-fan.svg" alt="موتور فن بخاری" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-COR</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین HEPA تویوتا کرولا و یاریس</a></h3>
+                    <div class="product-meta"><span>فن بخاری</span><span class="sku">BL-PR111</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">موتور فن بخاری پراید و تیبا</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۱٬۳۲۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۱٬۲۴۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="product-card">
+                  <div class="product-media">
+                    <div class="product-badges"><span class="badge-tag badge-sale">۱۰٪</span></div>
+                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                    <img src="assets/img/products/condenser.svg" alt="کندانسور سمند" width="240" height="240" loading="lazy">
+                  </div>
+                  <div class="product-body">
+                    <div class="product-meta"><span>کندانسور</span><span class="sku">COND-SM</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">رادیاتور کندانسور سمند و دنا</a></h3>
+                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
+                    <div class="product-foot">
+                      <div class="price"><del>۵٬۲۰۰٬۰۰۰</del><strong>۴٬۶۸۰٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -354,32 +363,14 @@
                   <div class="product-media">
                     <div class="product-badges"><span class="badge-tag badge-new">جدید</span></div>
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کابین هیوندای" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/evaporator.svg" alt="اواپراتور تویوتا" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-ACC</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کربن‌دار هیوندای اکسنت و i20</a></h3>
+                    <div class="product-meta"><span>اواپراتور</span><span class="sku">EV-COR11</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">اواپراتور کولر تویوتا کرولا ۲۰۱۱–۲۰۱۸</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۲٬۴۹۰٬۰۰۰ <small>تومان</small></strong></div>
-                      <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </article>
-              </div>
-              <div class="col">
-                <article class="product-card">
-                  <div class="product-media">
-                    <div class="product-badges"><span class="badge-tag badge-sale">۲۵٪</span></div>
-                    <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر پژو پارس" width="240" height="240" loading="lazy">
-                  </div>
-                  <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6479.A1</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین پژو پارس و ۴۰۵</a></h3>
-                    <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
-                    <div class="product-foot">
-                      <div class="price"><del>۲۸۰٬۰۰۰</del><strong>۲۱۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۷٬۹۰۰٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -389,14 +380,14 @@
                 <article class="product-card">
                   <div class="product-media">
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر دنا پلاس" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/expansion-valve.svg" alt="شیر انبساط هیوندای" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-DN+</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین دنا پلاس و تارا</a></h3>
+                    <div class="product-meta"><span>شیر انبساط</span><span class="sku">TXV-ACC</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">شیر انبساط کولر هیوندای اکسنت و i20</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۱٬۰۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۱٬۶۵۰٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -406,11 +397,11 @@
                 <article class="product-card is-out">
                   <div class="product-media">
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کوییک" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/clutch.svg" alt="ست کلاچ کمپرسور" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-QK</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کوییک و شاهین</a></h3>
+                    <div class="product-meta"><span>ست کلاچ</span><span class="sku">CL-206</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">ست کلاچ کمپرسور پژو ۲۰۶ تیپ ۵</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
                       <span class="stock-out">ناموجود</span>
@@ -422,16 +413,16 @@
               <div class="col">
                 <article class="product-card">
                   <div class="product-media">
-                    <div class="product-badges"><span class="badge-tag badge-sale">۱۰٪</span></div>
+                    <div class="product-badges"><span class="badge-tag badge-sale">۱۲٪</span></div>
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر پژو ۲۰۷" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/ac-hose.svg" alt="شیلنگ فشار بالا" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">6447.Z1</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین پژو ۲۰۷ و ۲۰۶+</a></h3>
+                    <div class="product-meta"><span>شیلنگ</span><span class="sku">HP-206</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">شیلنگ فشار بالا کولر پژو ۲۰۶ (کامل)</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><del>۳٬۲۰۰٬۰۰۰</del><strong>۲٬۸۸۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><del>۱٬۱۲۰٬۰۰۰</del><strong>۹۸۵٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -441,14 +432,14 @@
                 <article class="product-card">
                   <div class="product-media">
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="کیت فیلتر و بو" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/receiver-drier.svg" alt="رسیور درایر" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>کیت کابین</span><span class="sku">KIT-CF</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">کیت فیلتر کابین + اسپری خوشبوکننده</a></h3>
+                    <div class="product-meta"><span>رسیور درایر</span><span class="sku">RD-206</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">رسیور درایر کولر پژو ۲۰۶ و ۲۰۷</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۴۹۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۷۲۰٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -459,14 +450,14 @@
                   <div class="product-media">
                     <div class="product-badges"><span class="badge-tag badge-oem">اصلی</span></div>
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر MVM" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/pulley.svg" alt="پولی کمپرسور" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-X22</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین MVM X22 و X33</a></h3>
+                    <div class="product-meta"><span>پولی کمپرسور</span><span class="sku">PL-7H15</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">پولی کمپرسور ۷H15 پژو ۲۰۶</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۳٬۷۵۰٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۱٬۱۵۰٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>
@@ -476,14 +467,14 @@
                 <article class="product-card">
                   <div class="product-media">
                     <button class="btn-wish" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
-                    <img src="assets/img/products/cabin-filter.svg" alt="فیلتر کیا سراتو" width="240" height="240" loading="lazy">
+                    <img src="assets/img/products/bearing.svg" alt="بلبرینگ کمپرسور" width="240" height="240" loading="lazy">
                   </div>
                   <div class="product-body">
-                    <div class="product-meta"><span>فیلتر کابین</span><span class="sku">CF-CER</span></div>
-                    <h3 class="product-title"><a class="stretched-link" href="product.html">فیلتر کابین کیا سراتو و Rio</a></h3>
+                    <div class="product-meta"><span>بلبرینگ</span><span class="sku">BR-35BD</span></div>
+                    <h3 class="product-title"><a class="stretched-link" href="product.html">بلبرینگ کلاچ کمپرسور ۳۵BD</a></h3>
                     <p class="product-fit"><i class="bi bi-check2-circle" aria-hidden="true"></i>سازگار با خودروی شما</p>
                     <div class="product-foot">
-                      <div class="price"><strong>۱۸۵٬۰۰۰ <small>تومان</small></strong></div>
+                      <div class="price"><strong>۴۲۵٬۰۰۰ <small>تومان</small></strong></div>
                       <a class="btn-more" href="product.html">مشاهده بیشتر <i class="bi bi-arrow-left" aria-hidden="true"></i></a>
                     </div>
                   </div>

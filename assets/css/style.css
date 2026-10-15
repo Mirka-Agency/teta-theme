@@ -2902,15 +2902,25 @@ img, svg { max-width: 100%; height: auto; }
 
 .sort-links .label { margin-inline-end: .5rem; font-weight: 700; color: var(--tp-ink); }
 
-.sort-links a {
+.sort-links .sort-btn {
   display: inline-block;
   padding: .35rem .75rem;
+  font: inherit;
+  font-size: inherit;
   color: var(--tp-muted);
+  background: transparent;
+  border: 0;
   border-radius: 8px;
+  cursor: pointer;
+  transition: color .2s, background-color .2s;
 }
 
-.sort-links a:hover { color: var(--tp-navy); }
-.sort-links a.active { font-weight: 700; color: var(--tp-navy); background: var(--tp-sky-100); }
+.sort-links .sort-btn:hover { color: var(--tp-navy); }
+.sort-links .sort-btn.active {
+  font-weight: 700;
+  color: var(--tp-navy);
+  background: var(--tp-sky-100);
+}
 
 .chip {
   display: inline-flex;

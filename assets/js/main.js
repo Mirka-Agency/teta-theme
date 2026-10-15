@@ -227,6 +227,145 @@
     });
   });
 
+  // Shop product sorting
+  document.querySelectorAll('[data-shop-sort]').forEach((toolbar) => {
+    const grid = document.querySelector('[data-shop-grid]');
+    if (!grid) return;
+
+    const faDigits = '۰۱۲۳۴۵۶۷۸۹';
+    const parseFa = (text) => {
+      const normalized = String(text || '').replace(/[۰-۹]/g, (d) => String(faDigits.indexOf(d)));
+      return Number(normalized.replace(/[^\d]/g, '')) || 0;
+    };
+
+    const items = [...grid.children];
+    items.forEach((col, index) => {
+      const card = col.querySelector('.product-card');
+      const priceEl = col.querySelector('.price strong');
+      col.dataset.index = String(index);
+      col.dataset.price = String(parseFa(priceEl?.childNodes[0]?.textContent || priceEl?.textContent || '0'));
+      col.dataset.sales = String(Number(col.dataset.sales) || (items.length - index) * 17);
+      col.dataset.newest = card?.querySelector('.badge-new') ? '1' : '0';
+      col.dataset.stock = card?.classList.contains('is-out') ? '0' : '1';
+    });
+
+    const applySort = (mode) => {
+      const sorted = [...items].sort((a, b) => {
+        const priceA = Number(a.dataset.price);
+        const priceB = Number(b.dataset.price);
+        const salesA = Number(a.dataset.sales);
+        const salesB = Number(b.dataset.sales);
+        const indexA = Number(a.dataset.index);
+        const indexB = Number(b.dataset.index);
+        const newA = Number(a.dataset.newest);
+        const newB = Number(b.dataset.newest);
+
+        if (mode === 'price-asc') return priceA - priceB || indexA - indexB;
+        if (mode === 'price-desc') return priceB - priceA || indexA - indexB;
+        if (mode === 'sales') return salesB - salesA || indexA - indexB;
+        if (mode === 'newest') return newB - newA || indexA - indexB;
+        return indexA - indexB;
+      });
+
+      sorted.forEach((col) => grid.appendChild(col));
+
+      toolbar.querySelectorAll('[data-sort]').forEach((btn) => {
+        const active = btn.dataset.sort === mode;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+
+      const select = toolbar.querySelector('[data-sort-select]');
+      if (select && select.value !== mode) select.value = mode;
+    };
+
+    toolbar.addEventListener('click', (event) => {
+      const btn = event.target.closest('[data-sort]');
+      if (!btn || !toolbar.contains(btn)) return;
+      applySort(btn.dataset.sort || 'relevant');
+    });
+
+    const select = toolbar.querySelector('[data-sort-select]');
+    if (select) {
+      select.addEventListener('change', () => applySort(select.value || 'relevant'));
+    }
+  });
+
+  // Shop active filter chips
+  document.querySelectorAll('[data-shop-filters]').forEach((form) => {
+    const chips = document.getElementById('activeFilters');
+    if (!chips) return;
+
+    const labelFor = (control) => {
+      if (control.dataset.filterLabel && control.tagName === 'SELECT') {
+        const option = control.selectedOptions[0];
+        return option ? option.textContent.trim() : '';
+      }
+      if (control.dataset.filterLabel && control.type === 'range') {
+        return `${control.dataset.filterLabel}: ${faNumber.format(control.value)} تومان`;
+      }
+      const label = form.querySelector(`label[for="${control.id}"]`);
+      return label ? label.textContent.trim() : control.id;
+    };
+
+    const isActive = (control) => {
+      if (control.type === 'checkbox') return control.checked;
+      if (control.type === 'range') return Number(control.value) < Number(control.max);
+      if (control.tagName === 'SELECT') return Boolean(control.value);
+      return false;
+    };
+
+    const clearControl = (control) => {
+      if (control.type === 'checkbox') control.checked = false;
+      else if (control.type === 'range') control.value = control.max;
+      else if (control.tagName === 'SELECT') control.value = '';
+      control.dispatchEvent(new Event('input', { bubbles: true }));
+      control.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+
+    const render = () => {
+      chips.innerHTML = '';
+      form.querySelectorAll('[data-filter-chip]').forEach((control) => {
+        if (!isActive(control)) return;
+        const text = labelFor(control);
+        if (!text) return;
+
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'chip';
+        chip.dataset.chipFor = control.id;
+        chip.innerHTML = `${text} <i class="bi bi-x" aria-hidden="true"></i><span class="visually-hidden">حذف فیلتر</span>`;
+        chips.appendChild(chip);
+      });
+      chips.hidden = chips.childElementCount === 0;
+    };
+
+    form.addEventListener('change', render);
+    form.addEventListener('input', (event) => {
+      if (event.target.matches('[data-filter-chip][type="range"]')) render();
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      render();
+    });
+
+    form.addEventListener('reset', () => {
+      requestAnimationFrame(render);
+    });
+
+    chips.addEventListener('click', (event) => {
+      const chip = event.target.closest('[data-chip-for]');
+      if (!chip) return;
+      const control = form.querySelector(`#${CSS.escape(chip.dataset.chipFor)}`);
+      if (!control) return;
+      clearControl(control);
+      render();
+    });
+
+    render();
+  });
+
   // Range input live output
   document.querySelectorAll('[data-range-output]').forEach((range) => {
     const output = document.querySelector(range.dataset.rangeOutput);
@@ -236,15 +375,30 @@
     update();
   });
 
-  // Bootstrap form validation
-  document.querySelectorAll('form.needs-validation').forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
+  // Form submit: validate (if needed) then show success alert
+  document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    if (form.matches('.header-search, [role="search"], .modal-content, [data-shop-filters]')) return;
+
+    const shouldAlert = form.hasAttribute('data-success-alert') || form.classList.contains('needs-validation');
+    if (!shouldAlert) return;
+
+    if (form.classList.contains('needs-validation') && !form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
       form.classList.add('was-validated');
-    });
+      return;
+    }
+
+    event.preventDefault();
+    if (form.classList.contains('needs-validation')) form.classList.add('was-validated');
+    window.alert(form.dataset.successAlert || 'فرم با موفقیت ثبت شد.');
+
+    if (!form.hasAttribute('data-keep-values')) {
+      form.reset();
+      form.classList.remove('was-validated');
+    }
   });
 
   // Open a tab from the URL hash (e.g. account.html#register)
