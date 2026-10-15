@@ -442,6 +442,8 @@
     const syncLabel = () => {
       const selected = select.options[select.selectedIndex];
       label.textContent = selected ? selected.textContent.trim() : '';
+      const isPlaceholder = !selected || selected.disabled || selected.value === '';
+      label.classList.toggle('is-placeholder', isPlaceholder);
     };
 
     const buildOptions = () => {

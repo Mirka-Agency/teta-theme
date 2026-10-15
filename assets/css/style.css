@@ -428,8 +428,15 @@ img, svg { max-width: 100%; height: auto; }
 
 .tp-select-label {
   overflow: hidden;
+  color: var(--tp-navy);
+  font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.tp-select-label.is-placeholder {
+  color: var(--tp-steel-700);
+  font-weight: 600;
 }
 
 .tp-select-menu {
@@ -508,6 +515,7 @@ img, svg { max-width: 100%; height: auto; }
   padding-block: .55rem;
   padding-inline: .85rem;
   font-size: .85rem;
+  color: var(--tp-navy);
   background-color: transparent;
   border: 0;
   border-inline-end: 1px solid var(--tp-border);
