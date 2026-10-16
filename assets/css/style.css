@@ -4064,6 +4064,8 @@ img, svg { max-width: 100%; height: auto; }
   align-items: flex-start;
   gap: .7rem;
   min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   color: rgba(255, 255, 255, .78);
   transition: color .2s;
 }
@@ -4082,19 +4084,6 @@ img, svg { max-width: 100%; height: auto; }
   background: rgba(255, 255, 255, .1);
   border: 1px solid rgba(255, 255, 255, .12);
   border-radius: 10px;
-}
-
-.footer-contact-list a > :not(i),
-.footer-contact-list span > :not(i) {
-  min-width: 0;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* address text is often a direct text node inside span */
-.footer-contact-list span {
-  overflow-wrap: anywhere;
-  word-break: break-word;
 }
 
 .footer-title {
