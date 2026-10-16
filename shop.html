@@ -152,9 +152,9 @@
 
     <section class="section pt-4" id="offers">
       <div class="container">
-        <div class="row g-0 g-lg-4">
+        <div class="row g-4 shop-layout">
           <!-- Filters -->
-          <aside class="col-lg-3" aria-label="فیلتر محصولات">
+          <aside class="col-lg-3 shop-aside" aria-label="فیلتر محصولات">
             <div class="offcanvas-lg offcanvas-start shop-filters" tabindex="-1" id="shopFilters" aria-labelledby="shopFiltersLabel">
               <div class="offcanvas-header border-bottom">
                 <h2 class="offcanvas-title fs-5" id="shopFiltersLabel">فیلترها</h2>
@@ -242,9 +242,21 @@
           </aside>
 
           <!-- Products -->
-          <div class="col-lg-9">
+          <div class="col-lg-9 shop-main">
             <div class="shop-toolbar" data-shop-sort>
-              <button class="btn btn-soft btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#shopFilters" aria-controls="shopFilters"><i class="bi bi-sliders" aria-hidden="true"></i> فیلترها</button>
+              <div class="shop-toolbar-controls d-lg-none">
+                <button class="btn btn-soft btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#shopFilters" aria-controls="shopFilters"><i class="bi bi-sliders" aria-hidden="true"></i> فیلترها</button>
+                <div class="shop-sort-mobile d-md-none">
+                  <label class="visually-hidden" for="sortMobile">مرتب‌سازی</label>
+                  <select class="form-select form-select-sm" id="sortMobile" data-sort-select>
+                    <option value="relevant">مرتبط‌ترین</option>
+                    <option value="sales">پرفروش‌ترین</option>
+                    <option value="price-asc">ارزان‌ترین</option>
+                    <option value="price-desc">گران‌ترین</option>
+                    <option value="newest">جدیدترین</option>
+                  </select>
+                </div>
+              </div>
               <ul class="sort-links d-none d-md-flex" role="list">
                 <li class="label"><i class="bi bi-sort-down" aria-hidden="true"></i> مرتب‌سازی:</li>
                 <li><button class="sort-btn active" type="button" data-sort="relevant" aria-pressed="true">مرتبط‌ترین</button></li>
@@ -253,22 +265,12 @@
                 <li><button class="sort-btn" type="button" data-sort="price-desc" aria-pressed="false">گران‌ترین</button></li>
                 <li><button class="sort-btn" type="button" data-sort="newest" aria-pressed="false">جدیدترین</button></li>
               </ul>
-              <div class="d-md-none">
-                <label class="visually-hidden" for="sortMobile">مرتب‌سازی</label>
-                <select class="form-select form-select-sm" id="sortMobile" data-sort-select>
-                  <option value="relevant">مرتبط‌ترین</option>
-                  <option value="sales">پرفروش‌ترین</option>
-                  <option value="price-asc">ارزان‌ترین</option>
-                  <option value="price-desc">گران‌ترین</option>
-                  <option value="newest">جدیدترین</option>
-                </select>
-              </div>
-              <span class="fs-sm text-secondary" data-shop-count>۱۲ کالا از ۳۲۰</span>
+              <span class="shop-count fs-sm text-secondary" data-shop-count>۱۲ کالا از ۳۲۰</span>
             </div>
 
             <div class="active-filters d-flex flex-wrap gap-2 mb-3" id="activeFilters" hidden></div>
 
-            <div class="row row-cols-2 row-cols-md-3 g-3" data-shop-grid>
+            <div class="row row-cols-2 row-cols-xl-3 g-2 g-sm-3" data-shop-grid>
               <div class="col">
                 <article class="product-card">
                   <div class="product-media">
