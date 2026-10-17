@@ -852,19 +852,11 @@ img, svg { max-width: 100%; height: auto; }
 
 .brand-text {
   display: block;
-  max-width: 11rem;
   font-size: .72rem;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--tp-muted);
-  white-space: normal;
-}
-
-@media (min-width: 576px) {
-  .brand-text {
-    max-width: none;
-    white-space: nowrap;
-  }
+  white-space: nowrap;
 }
 
 .btn-menu {
@@ -1279,12 +1271,6 @@ img, svg { max-width: 100%; height: auto; }
   margin-bottom: 2rem;
   font-size: 1.025rem;
   color: var(--tp-muted);
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
 }
 
 .hero-stats {
