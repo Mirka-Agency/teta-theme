@@ -2733,32 +2733,23 @@ img, svg { max-width: 100%; height: auto; }
 
 .post-cta--video {
   background:
-    linear-gradient(160deg, var(--tp-navy) 0%, var(--tp-navy-700) 100%);
-  border-color: transparent;
-  color: #fff;
+    linear-gradient(180deg, #fff 0%, var(--tp-sky-50) 100%);
+  border-color: color-mix(in srgb, var(--tp-steel) 35%, var(--tp-border));
+  border-inline-start: 4px solid var(--tp-accent);
+  box-shadow: var(--tp-shadow-sm);
 }
 
 .post-cta--video .post-cta-badge {
-  color: #fff;
-  background: rgba(255, 255, 255, .14);
+  color: var(--tp-accent-700);
+  background: color-mix(in srgb, var(--tp-accent) 14%, #fff);
 }
 
-.post-cta--video .post-cta-title { color: #fff; }
+.post-cta--video .post-cta-title {
+  color: var(--tp-ink);
+}
 
 .post-cta--video .post-cta-text {
-  color: rgba(255, 255, 255, .78);
-}
-
-.post-cta--video .btn-primary {
-  color: var(--tp-navy);
-  background: #fff;
-  border-color: #fff;
-}
-
-.post-cta--video .btn-primary:hover {
-  color: var(--tp-navy);
-  background: var(--tp-sky-50);
-  border-color: var(--tp-sky-50);
+  color: var(--tp-body);
 }
 
 @media (max-width: 575.98px) {
