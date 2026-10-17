@@ -4864,10 +4864,6 @@ body {
     margin-bottom: 0;
     font-size: .9rem;
     line-height: 1.75;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
   }
 
   .hero .d-flex.flex-wrap.gap-2 {
@@ -5108,7 +5104,6 @@ body {
 
   .hero-lead {
     font-size: .85rem;
-    -webkit-line-clamp: 2;
   }
 
   .finder {
