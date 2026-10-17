@@ -86,30 +86,37 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Scrollbars — thin themed handle */
+/* Scrollbars — thin themed handle (hide Win arrow buttons) */
 * {
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--tp-steel) 55%, var(--tp-sky)) transparent;
 }
 
 *::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 *::-webkit-scrollbar-track {
+  margin-block: 6px;
   background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--tp-sky), var(--tp-steel));
-  border: 1px solid transparent;
+  background-color: color-mix(in srgb, var(--tp-steel) 55%, var(--tp-sky));
+  border: 2px solid transparent;
   border-radius: 999px;
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--tp-steel), var(--tp-navy));
+  background-color: color-mix(in srgb, var(--tp-navy) 70%, var(--tp-steel));
   background-clip: padding-box;
 }
 
@@ -452,7 +459,9 @@ img, svg { max-width: 100%; height: auto; }
   max-height: 16.5rem;
   margin: 0;
   padding: .4rem;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   list-style: none;
   background: #fff;
   border: 1px solid var(--tp-border);
@@ -460,12 +469,29 @@ img, svg { max-width: 100%; height: auto; }
   box-shadow:
     0 1px 0 rgba(255, 255, 255, .9) inset,
     0 22px 48px -28px rgba(10, 16, 87, .32);
+  scrollbar-gutter: stable;
 }
 
-.tp-select-menu::-webkit-scrollbar { width: 5px; }
+.tp-select-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tp-select-menu::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.tp-select-menu::-webkit-scrollbar-track {
+  margin-block: 8px;
+  background: transparent;
+}
+
 .tp-select-menu::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--tp-steel) 70%, var(--tp-sky));
+  background-color: color-mix(in srgb, var(--tp-steel) 65%, var(--tp-sky));
+  border: 2px solid transparent;
   border-radius: 999px;
+  background-clip: padding-box;
 }
 
 .tp-select.is-open .tp-select-menu {
@@ -3419,6 +3445,18 @@ img, svg { max-width: 100%; height: auto; }
 
   .shop-filters .offcanvas-body {
     padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+
+  .shop-filters .offcanvas-body::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .shop-filters .offcanvas-body::-webkit-scrollbar-track {
+    margin-block: 10px;
   }
 
   .price-out {
@@ -3526,10 +3564,35 @@ img, svg { max-width: 100%; height: auto; }
     top: var(--tp-header-offset);
     max-height: calc(100vh - var(--tp-header-offset) - 1.5rem);
     padding: 1.5rem;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: #fff;
     border: 1px solid var(--tp-border);
     border-radius: var(--tp-radius-lg);
+    scrollbar-gutter: stable;
+  }
+
+  .shop-filters::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .shop-filters::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .shop-filters::-webkit-scrollbar-track {
+    margin-block: 12px;
+    background: transparent;
+  }
+
+  .shop-filters::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--tp-steel) 55%, var(--tp-sky));
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
   }
 }
 
