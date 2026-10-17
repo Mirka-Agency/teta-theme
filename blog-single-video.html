@@ -324,10 +324,20 @@
                 <span class="post-cta-badge">قطعه مورد نیاز</span>
                 <h2 class="post-cta-title">کمپرسور مناسب خودروی شما</h2>
                 <p class="post-cta-text">مدل خودرو را انتخاب کنید تا کمپرسور سازگار و قطعات جانبی را ببینید.</p>
-                <a class="btn btn-primary w-100" href="shop.html?cat=compressor">
-                  <i class="bi bi-box-seam" aria-hidden="true"></i>
-                  مشاهده کمپرسورها
-                </a>
+                <div class="d-grid gap-2">
+                  <a class="btn btn-primary w-100" href="shop.html?cat=compressor">
+                    <i class="bi bi-box-seam" aria-hidden="true"></i>
+                    مشاهده کمپرسورها
+                  </a>
+                  <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="modal" data-bs-target="#requestModal" data-request-type="consult">
+                    <i class="bi bi-chat-dots" aria-hidden="true"></i>
+                    درخواست مشاوره فنی
+                  </button>
+                  <button class="btn btn-soft w-100" type="button" data-bs-toggle="modal" data-bs-target="#requestModal" data-request-type="inquiry">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    استعلام قطعه
+                  </button>
+                </div>
               </div>
             </div>
           </aside>
@@ -395,6 +405,58 @@
       </div>
     </div>
   </footer>
+
+  <!-- Request modal (استعلام قطعه / مشاوره فنی) -->
+  <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form class="needs-validation" action="#" data-request-form data-success-alert="درخواست شما ثبت شد. به‌زودی با شما تماس می‌گیریم." novalidate>
+          <div class="modal-header">
+            <h2 class="modal-title fs-5 d-flex align-items-center gap-2" id="requestModalLabel">
+              <i class="bi bi-box-seam text-steel" data-request-icon aria-hidden="true"></i>
+              <span data-request-title>استعلام قطعه</span>
+            </h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
+          </div>
+          <div class="modal-body">
+            <p class="fs-sm text-secondary" data-request-lead>نام قطعه و مدل خودرو را بفرستید؛ موجودی و قیمت را اعلام می‌کنیم.</p>
+            <input type="hidden" name="subject" data-request-subject value="استعلام قیمت و موجودی قطعه">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="reqName">نام و نام خانوادگی</label>
+                <input class="form-control" id="reqName" name="name" type="text" autocomplete="name" required>
+                <div class="invalid-feedback">نام خود را وارد کنید.</div>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="reqPhone">شماره تماس</label>
+                <input class="form-control ltr" id="reqPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+                <div class="invalid-feedback">شماره تماس را وارد کنید.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="reqVehicle">مدل خودرو</label>
+                <input class="form-control" id="reqVehicle" name="vehicle" type="text" placeholder="مثال: پژو ۲۰۶ تیپ ۵ — مدل ۱۴۰۲" required>
+                <div class="invalid-feedback">مدل خودرو را وارد کنید.</div>
+              </div>
+              <div class="col-12" data-request-part-field>
+                <label class="form-label" for="reqPart">نام قطعه یا شماره فنی</label>
+                <input class="form-control" id="reqPart" name="part" type="text" placeholder="مثال: کمپرسور کولر / 6453.Q6" required>
+                <div class="invalid-feedback">نام قطعه را وارد کنید.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="reqMessage">توضیحات</label>
+                <textarea class="form-control" id="reqMessage" name="message" rows="3" data-request-message placeholder="جزئیات بیشتر مثل سال ساخت یا شماره شاسی…" required></textarea>
+                <div class="invalid-feedback">توضیحات را وارد کنید.</div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-soft" data-bs-dismiss="modal">انصراف</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-send" aria-hidden="true"></i> <span data-request-submit>ارسال استعلام</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- My garage (vehicle selector) -->
   <div class="modal fade" id="garageModal" tabindex="-1" aria-labelledby="garageModalLabel" aria-hidden="true">

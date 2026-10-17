@@ -548,6 +548,66 @@
     });
   });
 
+  // Request modal (استعلام قطعه / مشاوره فنی): configure from trigger button
+  const requestModalEl = document.getElementById('requestModal');
+  if (requestModalEl) {
+    const presets = {
+      inquiry: {
+        title: 'استعلام قطعه',
+        icon: 'bi bi-box-seam text-steel',
+        lead: 'نام قطعه و مدل خودرو را بفرستید؛ موجودی و قیمت را اعلام می‌کنیم.',
+        subject: 'استعلام قیمت و موجودی قطعه',
+        placeholder: 'جزئیات بیشتر مثل سال ساخت یا شماره شاسی…',
+        submit: 'ارسال استعلام',
+        success: 'استعلام شما ثبت شد. به‌زودی با شما تماس می‌گیریم.',
+        showPart: true,
+      },
+      consult: {
+        title: 'درخواست مشاوره فنی',
+        icon: 'bi bi-chat-dots text-steel',
+        lead: 'کارشناسان تهویه تتا مدل خودرویتان را بررسی می‌کنند و راهنمایی می‌کنند.',
+        subject: 'مشاوره فنی',
+        placeholder: 'سؤال یا مشکل فنی خود را بنویسید…',
+        submit: 'ارسال درخواست',
+        success: 'درخواست مشاوره ثبت شد. کارشناسان ما به‌زودی پاسخ می‌دهند.',
+        showPart: false,
+      },
+    };
+
+    const applyRequestPreset = (type) => {
+      const preset = presets[type] || presets.inquiry;
+      const icon = requestModalEl.querySelector('[data-request-icon]');
+      const title = requestModalEl.querySelector('[data-request-title]');
+      const lead = requestModalEl.querySelector('[data-request-lead]');
+      const subject = requestModalEl.querySelector('[data-request-subject]');
+      const message = requestModalEl.querySelector('[data-request-message]');
+      const submit = requestModalEl.querySelector('[data-request-submit]');
+      const partField = requestModalEl.querySelector('[data-request-part-field]');
+      const partInput = requestModalEl.querySelector('#reqPart');
+      const form = requestModalEl.querySelector('[data-request-form]');
+
+      if (icon) icon.className = preset.icon;
+      if (title) title.textContent = preset.title;
+      if (lead) lead.textContent = preset.lead;
+      if (subject) subject.value = preset.subject;
+      if (message) message.placeholder = preset.placeholder;
+      if (submit) submit.textContent = preset.submit;
+      if (form) form.dataset.successAlert = preset.success;
+      if (partField) partField.hidden = !preset.showPart;
+      if (partInput) {
+        partInput.required = Boolean(preset.showPart);
+        if (!preset.showPart) partInput.value = '';
+      }
+    };
+
+    requestModalEl.addEventListener('show.bs.modal', (event) => {
+      const type = event.relatedTarget?.dataset?.requestType || 'inquiry';
+      applyRequestPreset(type);
+      const form = requestModalEl.querySelector('[data-request-form]');
+      form?.classList.remove('was-validated');
+    });
+  }
+
   // Form submit: validate (if needed) then show success alert
   document.addEventListener('submit', (event) => {
     const form = event.target;
@@ -581,6 +641,11 @@
     if (!form.hasAttribute('data-keep-values')) {
       form.reset();
       form.classList.remove('was-validated');
+    }
+
+    const requestModal = form.closest('#requestModal');
+    if (requestModal && window.bootstrap) {
+      window.bootstrap.Modal.getInstance(requestModal)?.hide();
     }
   });
 
