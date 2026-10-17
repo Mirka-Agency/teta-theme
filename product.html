@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>کمپرسور کولر پژو ۲۰۶ تیپ ۵ | تتا</title>
-  <meta name="description" content="خرید کمپرسور کولر پژو ۲۰۶ تیپ ۵ با ضمانت اصالت، مشخصات فنی کامل و لیست خودروهای سازگار.">
+  <meta name="description" content="خرید تک و استعلام عمده کمپرسور کولر پژو ۲۰۶ تیپ ۵ با ضمانت اصالت، مشخصات فنی کامل و لیست خودروهای سازگار.">
   <meta name="theme-color" content="#0A1057">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -21,6 +21,7 @@
     <div class="container">
       <div class="d-flex align-items-center gap-4">
         <span><i class="bi bi-truck" aria-hidden="true"></i>ارسال رایگان برای سفارش‌های بالای ۳ میلیون تومان</span>
+        <span class="d-none d-lg-inline"><i class="bi bi-boxes" aria-hidden="true"></i>فروش تک و عمده — ویژه تعمیرگاه و فروشنده</span>
       </div>
       <ul class="topbar-links">
         <li><a href="account.html#orders">پیگیری سفارش</a></li>
@@ -128,6 +129,7 @@
               <li class="nav-item"><a class="nav-link" href="blog.html">وبلاگ</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
               <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html#wholesale">فروش عمده</a></li>
             </ul>
 
             <div class="d-lg-none mt-4 d-grid gap-2">
@@ -224,6 +226,7 @@
                 <li><i class="bi bi-shop" aria-hidden="true"></i><span>امکان تحویل حضوری از فروشگاه</span></li>
                 <li><i class="bi bi-headset" aria-hidden="true"></i><span>مشاوره‌ی فنی پیش از خرید: <a class="ltr" href="tel:+982112345678">۰۲۱-۱۲۳۴۵۶۷۸</a></span></li>
               </ul>
+              <p class="buy-wholesale-note"><i class="bi bi-boxes" aria-hidden="true"></i> خرید تکی از همین صفحه؛ برای <a href="#requestModal" data-bs-toggle="modal" data-bs-target="#requestModal" data-request-type="wholesale">فروش عمده و قیمت همکار</a> استعلام بگیرید.</p>
             </div>
           </div>
         </div>
@@ -459,7 +462,7 @@
             <img class="brand-logo" src="assets/img/logo-teta.png" alt="TETA" width="140" height="33">
             <span class="brand-text">بازرگانی اطلس یدک</span>
           </a>
-          <p class="footer-about">فروشگاه تخصصی لوازم یدکی تهویه و کولر خودروهای ایرانی و خارجی با ضمانت اصالت، مشاوره فنی و ارسال سریع به سراسر ایران.</p>
+          <p class="footer-about">فروش تک و عمده لوازم یدکی تهویه و کولر خودروهای ایرانی و خارجی — ضمانت اصالت، مشاوره فنی و ارسال سریع به سراسر ایران.</p>
           <ul class="footer-contact-list">
             <li><span><i class="bi bi-geo-alt" aria-hidden="true"></i>تهران، خیابان امین‌حضور، پاساژ لوازم یدکی، پلاک ۱۲</span></li>
             <li><a href="tel:+982112345678"><i class="bi bi-telephone" aria-hidden="true"></i><span class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></a></li>
@@ -474,6 +477,7 @@
             <li><a href="shop.html#offers">پیشنهادهای ویژه</a></li>
             <li><a href="index.html#brands">برندهای خودرو</a></li>
             <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="contact.html#wholesale">فروش عمده</a></li>
             <li><a href="about.html">درباره ما</a></li>
           </ul>
         </div>
@@ -539,14 +543,14 @@
                 <div class="invalid-feedback">شماره تماس را وارد کنید.</div>
               </div>
               <div class="col-12">
-                <label class="form-label" for="reqVehicle">مدل خودرو</label>
-                <input class="form-control" id="reqVehicle" name="vehicle" type="text" placeholder="مثال: پژو ۲۰۶ تیپ ۵ — مدل ۱۴۰۲" required>
-                <div class="invalid-feedback">مدل خودرو را وارد کنید.</div>
+                <label class="form-label" for="reqVehicle" data-request-vehicle-label>مدل خودرو</label>
+                <input class="form-control" id="reqVehicle" name="vehicle" type="text" placeholder="مثال: پژو ۲۰۶ تیپ ۵ — مدل ۱۴۰۲" data-request-vehicle-input required>
+                <div class="invalid-feedback" data-request-vehicle-error>مدل خودرو را وارد کنید.</div>
               </div>
               <div class="col-12" data-request-part-field>
-                <label class="form-label" for="reqPart">نام قطعه یا شماره فنی</label>
-                <input class="form-control" id="reqPart" name="part" type="text" placeholder="مثال: کمپرسور کولر / 6453.Q6" required>
-                <div class="invalid-feedback">نام قطعه را وارد کنید.</div>
+                <label class="form-label" for="reqPart" data-request-part-label>نام قطعه یا شماره فنی</label>
+                <input class="form-control" id="reqPart" name="part" type="text" placeholder="مثال: کمپرسور کولر / 6453.Q6" data-request-part-input required>
+                <div class="invalid-feedback" data-request-part-error>نام قطعه را وارد کنید.</div>
               </div>
               <div class="col-12">
                 <label class="form-label" for="reqMessage">توضیحات</label>

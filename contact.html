@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>تماس با ما | تتا</title>
-  <meta name="description" content="راه‌های ارتباط با فروشگاه لوازم کولر تتا، آدرس، ساعات کاری و سوالات متداول.">
+  <meta name="description" content="تماس با فروشگاه تتا برای فروش تک و عمده لوازم کولر — آدرس، ساعات کاری، استعلام همکار و سوالات متداول.">
   <meta name="theme-color" content="#0A1057">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -21,6 +21,7 @@
     <div class="container">
       <div class="d-flex align-items-center gap-4">
         <span><i class="bi bi-truck" aria-hidden="true"></i>ارسال رایگان برای سفارش‌های بالای ۳ میلیون تومان</span>
+        <span class="d-none d-lg-inline"><i class="bi bi-boxes" aria-hidden="true"></i>فروش تک و عمده — ویژه تعمیرگاه و فروشنده</span>
       </div>
       <ul class="topbar-links">
         <li><a href="account.html#orders">پیگیری سفارش</a></li>
@@ -128,6 +129,7 @@
               <li class="nav-item"><a class="nav-link" href="blog.html">وبلاگ</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
               <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">تماس با ما</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html#wholesale">فروش عمده</a></li>
             </ul>
 
             <div class="d-lg-none mt-4 d-grid gap-2">
@@ -150,7 +152,7 @@
           </ol>
         </nav>
         <h1>تماس با ما</h1>
-        <p class="contact-hero-lead">پشتیبانی تخصصی قطعات کولر — پاسخ‌گویی سریع از تلفن، واتس‌اپ و فرم پیام</p>
+        <p class="contact-hero-lead">پشتیبانی فروش تک و عمده قطعات کولر — پاسخ‌گویی سریع از تلفن، واتس‌اپ و فرم پیام</p>
       </div>
     </div>
 
@@ -161,6 +163,13 @@
           <div class="col"><div class="contact-card is-whatsapp"><span class="icon-box"><i class="bi bi-whatsapp" aria-hidden="true"></i></span><div><h2>مشاوره در واتس‌اپ</h2><p><a class="ltr" href="#">۰۹۱۲-۱۲۳-۴۵۶۷</a></p></div></div></div>
           <div class="col"><div class="contact-card is-mail"><span class="icon-box"><i class="bi bi-envelope" aria-hidden="true"></i></span><div><h2>ایمیل</h2><p><a href="mailto:info@tetayadak.ir">info@tetayadak.ir</a></p></div></div></div>
           <div class="col"><div class="contact-card is-clock"><span class="icon-box"><i class="bi bi-clock" aria-hidden="true"></i></span><div><h2>ساعات کاری</h2><p>شنبه تا پنجشنبه، ۹ تا ۱۹</p></div></div></div>
+        </div>
+
+        <div class="wholesale-banner mb-5" id="wholesale">
+          <div>
+            <p><strong>فروش عمده برای تعمیرگاه‌ها و فروشندگان:</strong> لیست نیاز، حجم تقریبی سفارش و شهر خود را ارسال کنید تا کارشناس همکار، قیمت عمده و شرایط تأمین را اعلام کند.</p>
+          </div>
+          <a class="btn btn-primary flex-shrink-0" href="#ctSubject" data-wholesale-inquiry>درخواست فروش عمده</a>
         </div>
 
         <div class="row g-4">
@@ -182,6 +191,7 @@
                   <label class="form-label" for="ctSubject">موضوع</label>
                   <select class="form-select" id="ctSubject" name="subject">
                     <option>استعلام قیمت و موجودی قطعه</option>
+                    <option>استعلام فروش عمده (تعمیرگاه / فروشنده)</option>
                     <option>پیگیری سفارش</option>
                     <option>بازگشت کالا</option>
                     <option>همکاری (تعمیرگاه‌ها و فروشندگان)</option>
@@ -190,7 +200,7 @@
                 </div>
                 <div class="col-12">
                   <label class="form-label" for="ctMessage">متن پیام</label>
-                  <textarea class="form-control" id="ctMessage" name="message" rows="5" placeholder="برای استعلام قطعه، مدل و سال ساخت خودرو یا شماره شاسی را بنویسید." required></textarea>
+                  <textarea class="form-control" id="ctMessage" name="message" rows="5" placeholder="برای خرید تکی: مدل و سال خودرو یا شماره شاسی. برای فروش عمده: نام مجموعه، شهر و فهرست تقریبی قطعات." required></textarea>
                   <div class="invalid-feedback">متن پیام را وارد کنید.</div>
                 </div>
                 <div class="col-12">
@@ -244,6 +254,12 @@
                   <div class="accordion-body">تمام قطعات مستقیماً از نمایندگی‌ها و واردکنندگان رسمی تأمین می‌شوند و دارای برچسب و کد رهگیری اصالت هستند.</div>
                 </div>
               </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">آیا فروش عمده هم دارید؟</button></h3>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqList">
+                  <div class="accordion-body">بله. علاوه بر فروش تک آنلاین، برای تعمیرگاه‌ها، فروشندگان و مراکز خدمات، فروش عمده با قیمت همکار ارائه می‌شود. از بخش <a href="#wholesale">فروش عمده</a> یا موضوع «استعلام فروش عمده» در فرم پیام اقدام کنید.</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -260,7 +276,7 @@
             <img class="brand-logo" src="assets/img/logo-teta.png" alt="TETA" width="140" height="33">
             <span class="brand-text">بازرگانی اطلس یدک</span>
           </a>
-          <p class="footer-about">فروشگاه تخصصی لوازم یدکی تهویه و کولر خودروهای ایرانی و خارجی با ضمانت اصالت، مشاوره فنی و ارسال سریع به سراسر ایران.</p>
+          <p class="footer-about">فروش تک و عمده لوازم یدکی تهویه و کولر خودروهای ایرانی و خارجی — ضمانت اصالت، مشاوره فنی و ارسال سریع به سراسر ایران.</p>
           <ul class="footer-contact-list">
             <li><span><i class="bi bi-geo-alt" aria-hidden="true"></i>تهران، خیابان امین‌حضور، پاساژ لوازم یدکی، پلاک ۱۲</span></li>
             <li><a href="tel:+982112345678"><i class="bi bi-telephone" aria-hidden="true"></i><span class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></a></li>
@@ -275,6 +291,7 @@
             <li><a href="shop.html#offers">پیشنهادهای ویژه</a></li>
             <li><a href="index.html#brands">برندهای خودرو</a></li>
             <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="contact.html#wholesale">فروش عمده</a></li>
             <li><a href="about.html">درباره ما</a></li>
           </ul>
         </div>

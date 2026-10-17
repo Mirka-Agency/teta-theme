@@ -548,7 +548,7 @@
     });
   });
 
-  // Request modal (استعلام قطعه / مشاوره فنی): configure from trigger button
+  // Request modal (استعلام قطعه / مشاوره / فروش عمده): configure from trigger
   const requestModalEl = document.getElementById('requestModal');
   if (requestModalEl) {
     const presets = {
@@ -561,6 +561,12 @@
         submit: 'ارسال استعلام',
         success: 'استعلام شما ثبت شد. به‌زودی با شما تماس می‌گیریم.',
         showPart: true,
+        vehicleLabel: 'مدل خودرو',
+        vehiclePlaceholder: 'مثال: پژو ۲۰۶ تیپ ۵ — مدل ۱۴۰۲',
+        vehicleError: 'مدل خودرو را وارد کنید.',
+        partLabel: 'نام قطعه یا شماره فنی',
+        partPlaceholder: 'مثال: کمپرسور کولر / 6453.Q6',
+        partError: 'نام قطعه را وارد کنید.',
       },
       consult: {
         title: 'درخواست مشاوره فنی',
@@ -571,6 +577,28 @@
         submit: 'ارسال درخواست',
         success: 'درخواست مشاوره ثبت شد. کارشناسان ما به‌زودی پاسخ می‌دهند.',
         showPart: false,
+        vehicleLabel: 'مدل خودرو',
+        vehiclePlaceholder: 'مثال: پژو ۲۰۶ تیپ ۵ — مدل ۱۴۰۲',
+        vehicleError: 'مدل خودرو را وارد کنید.',
+        partLabel: 'نام قطعه یا شماره فنی',
+        partPlaceholder: 'مثال: کمپرسور کولر / 6453.Q6',
+        partError: 'نام قطعه را وارد کنید.',
+      },
+      wholesale: {
+        title: 'استعلام فروش عمده',
+        icon: 'bi bi-boxes text-steel',
+        lead: 'نام مجموعه، شهر و اقلام مورد نیاز را بفرستید؛ کارشناس همکار قیمت عمده را اعلام می‌کند.',
+        subject: 'استعلام فروش عمده (تعمیرگاه / فروشنده)',
+        placeholder: 'حجم تقریبی سفارش، شهر و زمان تحویل مطلوب…',
+        submit: 'ارسال استعلام عمده',
+        success: 'استعلام عمده ثبت شد. کارشناس همکار به‌زودی با شما تماس می‌گیرد.',
+        showPart: true,
+        vehicleLabel: 'نام مجموعه / تعمیرگاه',
+        vehiclePlaceholder: 'مثال: تعمیرگاه کولر پارس — تهران',
+        vehicleError: 'نام مجموعه را وارد کنید.',
+        partLabel: 'اقلام مورد نیاز',
+        partPlaceholder: 'مثال: کمپرسور ۲۰۶، کندانسور پارس، گاز R134a…',
+        partError: 'اقلام مورد نیاز را وارد کنید.',
       },
     };
 
@@ -583,7 +611,12 @@
       const message = requestModalEl.querySelector('[data-request-message]');
       const submit = requestModalEl.querySelector('[data-request-submit]');
       const partField = requestModalEl.querySelector('[data-request-part-field]');
-      const partInput = requestModalEl.querySelector('#reqPart');
+      const partInput = requestModalEl.querySelector('#reqPart') || requestModalEl.querySelector('[data-request-part-input]');
+      const partLabel = requestModalEl.querySelector('[data-request-part-label]');
+      const partError = requestModalEl.querySelector('[data-request-part-error]');
+      const vehicleInput = requestModalEl.querySelector('#reqVehicle') || requestModalEl.querySelector('[data-request-vehicle-input]');
+      const vehicleLabel = requestModalEl.querySelector('[data-request-vehicle-label]');
+      const vehicleError = requestModalEl.querySelector('[data-request-vehicle-error]');
       const form = requestModalEl.querySelector('[data-request-form]');
 
       if (icon) icon.className = preset.icon;
@@ -593,6 +626,12 @@
       if (message) message.placeholder = preset.placeholder;
       if (submit) submit.textContent = preset.submit;
       if (form) form.dataset.successAlert = preset.success;
+      if (vehicleLabel) vehicleLabel.textContent = preset.vehicleLabel;
+      if (vehicleInput) vehicleInput.placeholder = preset.vehiclePlaceholder;
+      if (vehicleError) vehicleError.textContent = preset.vehicleError;
+      if (partLabel) partLabel.textContent = preset.partLabel;
+      if (partInput) partInput.placeholder = preset.partPlaceholder;
+      if (partError) partError.textContent = preset.partError;
       if (partField) partField.hidden = !preset.showPart;
       if (partInput) {
         partInput.required = Boolean(preset.showPart);
@@ -652,6 +691,22 @@
   // Open a tab from the URL hash (e.g. contact.html#faq)
   const hashTab = window.location.hash && document.querySelector(`[data-bs-toggle="pill"][data-bs-target="${window.location.hash}"], [data-bs-toggle="tab"][data-bs-target="${window.location.hash}"]`);
   if (hashTab && window.bootstrap) window.bootstrap.Tab.getOrCreateInstance(hashTab).show();
+
+  // Wholesale inquiry: preselect contact subject
+  const wholesaleSubject = 'استعلام فروش عمده (تعمیرگاه / فروشنده)';
+  const selectWholesaleSubject = () => {
+    const subject = document.getElementById('ctSubject');
+    if (!subject) return;
+    const match = Array.from(subject.options).find((opt) => opt.value === wholesaleSubject || opt.textContent === wholesaleSubject);
+    if (match) {
+      subject.value = match.value;
+      subject.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  };
+  if (window.location.hash === '#wholesale') selectWholesaleSubject();
+  document.querySelectorAll('[data-wholesale-inquiry]').forEach((link) => {
+    link.addEventListener('click', () => selectWholesaleSubject());
+  });
 
   // Themed select popup (replaces native option list)
   const closeAllSelects = (except) => {
