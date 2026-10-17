@@ -4276,6 +4276,10 @@ img, svg { max-width: 100%; height: auto; }
 
 .social { display: flex; flex-wrap: wrap; gap: .5rem; }
 
+.trust-badges + .social {
+  margin-top: 1.25rem;
+}
+
 .social a {
   display: grid;
   place-items: center;
