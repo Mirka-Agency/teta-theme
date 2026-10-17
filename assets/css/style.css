@@ -4002,71 +4002,114 @@ img, svg { max-width: 100%; height: auto; }
   color: var(--tp-muted);
 }
 
-.milestones {
+/* Path timeline (about) */
+.path-timeline {
+  --path-gap: 1.25rem;
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(220px, .9fr) minmax(0, 1.4fr);
-  gap: 3rem 4rem;
-  align-items: start;
-  min-width: 0;
-}
-
-.milestones-intro {
-  position: sticky;
-  top: calc(var(--tp-header-offset) + 1rem);
-  max-width: 22rem;
-  min-width: 0;
-}
-
-.milestones-intro .section-desc {
-  margin-top: .85rem;
-  line-height: 1.9;
-}
-
-.milestone-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--path-gap);
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--tp-border);
+}
+
+.path-timeline::before {
+  content: "";
+  position: absolute;
+  top: 2.15rem;
+  right: calc(12.5% + .5rem);
+  left: calc(12.5% + .5rem);
+  height: 2px;
+  background: linear-gradient(90deg, var(--tp-sky), var(--tp-steel), var(--tp-sky));
+  pointer-events: none;
+}
+
+.path-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
   min-width: 0;
 }
 
-.milestone-list li {
-  display: grid;
-  grid-template-columns: 7.5rem minmax(0, 1fr);
-  gap: 1.5rem 2rem;
-  align-items: baseline;
-  padding: 1.65rem 0;
-  border-bottom: 1px solid var(--tp-border);
-  transition: background-color .25s var(--tp-ease);
+.path-step-mark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .65rem;
 }
 
-.milestone-list li:hover {
-  background: linear-gradient(90deg, transparent, var(--tp-sky-50) 12%, var(--tp-sky-50) 88%, transparent);
-}
-
-.milestone-list time {
-  display: block;
-  font-size: clamp(1.55rem, 1.2rem + 1vw, 2rem);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -.01em;
+.path-step-mark time {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  padding: .35rem .7rem;
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1;
   color: var(--tp-navy);
+  background: #fff;
+  border: 1px solid var(--tp-border);
+  border-radius: 999px;
+  box-shadow: var(--tp-shadow-sm);
   direction: ltr;
   unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
 }
 
-.milestone-list h3 {
-  margin: 0 0 .4rem;
-  font-size: 1.05rem;
+.path-step-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--tp-navy);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--tp-sky);
+}
+
+.path-step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  height: 100%;
+  padding: 1.35rem 1.25rem 1.4rem;
+  background: #fff;
+  border: 1px solid var(--tp-border);
+  border-radius: var(--tp-radius);
+  transition:
+    transform .25s var(--tp-ease),
+    border-color .25s,
+    box-shadow .25s;
+}
+
+.path-step:hover .path-step-card {
+  border-color: var(--tp-sky);
+  box-shadow: var(--tp-shadow);
+  transform: translateY(-4px);
+}
+
+.path-step:hover .path-step-dot {
+  background: var(--tp-steel);
+  box-shadow: 0 0 0 2px var(--tp-navy);
+}
+
+.path-step-card .icon-box {
+  margin-bottom: .85rem;
+}
+
+.path-step-card h3 {
+  margin: 0 0 .45rem;
+  font-size: 1rem;
   font-weight: 800;
-  color: var(--tp-ink);
 }
 
-.milestone-list p {
+.path-step-card p {
   margin: 0;
-  max-width: 36rem;
-  font-size: .9rem;
-  line-height: 1.9;
+  font-size: .875rem;
+  line-height: 1.85;
   color: var(--tp-muted);
 }
 
@@ -4080,20 +4123,13 @@ img, svg { max-width: 100%; height: auto; }
     margin-inline: auto;
   }
 
-  .milestones {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
+  .path-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.75rem;
   }
 
-  .milestones-intro {
-    position: static;
-    max-width: none;
-  }
-
-  .milestone-list li {
-    grid-template-columns: 6.25rem minmax(0, 1fr);
-    gap: 1rem 1.25rem;
-    padding: 1.4rem 0;
+  .path-timeline::before {
+    display: none;
   }
 }
 
@@ -4131,30 +4167,53 @@ img, svg { max-width: 100%; height: auto; }
     line-height: 1.75;
   }
 
-  .milestone-list li {
+  .path-timeline {
     grid-template-columns: 1fr;
-    gap: .45rem;
-    padding: 1.25rem 0;
+    gap: 0;
+    padding-inline-start: 1.15rem;
+    border-inline-start: 2px solid var(--tp-sky);
   }
 
-  .milestone-list li:hover {
-    background: linear-gradient(180deg, var(--tp-sky-50), transparent);
-    margin-inline: -.5rem;
-    padding-inline: .5rem;
-    border-radius: var(--tp-radius-sm);
+  .path-step {
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-block: 0 1.5rem;
   }
 
-  .milestone-list time {
-    font-size: 1.3rem;
+  .path-step:last-child {
+    padding-bottom: 0;
   }
 
-  .milestone-list h3 {
-    font-size: .98rem;
+  .path-step-mark {
+    position: absolute;
+    top: .15rem;
+    inset-inline-start: -1.15rem;
+    transform: translateX(50%);
+    gap: 0;
   }
 
-  .milestone-list p {
-    font-size: .85rem;
-    line-height: 1.8;
+  [dir="rtl"] .path-step-mark {
+    transform: translateX(-50%);
+  }
+
+  .path-step-mark time {
+    position: absolute;
+    top: -.15rem;
+    inset-inline-start: 1.35rem;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .path-step-card {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.15rem 1.1rem 1.2rem;
+  }
+
+  .path-step:hover .path-step-card {
+    transform: none;
   }
 }
 
