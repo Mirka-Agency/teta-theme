@@ -3717,6 +3717,50 @@ img, svg { max-width: 100%; height: auto; }
   .auth-form { padding: 1.5rem; }
 }
 
+.otp-digits {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .65rem;
+}
+
+.otp-digit {
+  height: 3.25rem;
+  padding-inline: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.otp-digit:focus {
+  border-color: var(--tp-navy);
+  box-shadow: 0 0 0 .2rem rgba(10, 16, 87, .12);
+}
+
+.otp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.otp-actions .btn-link {
+  color: var(--tp-navy);
+  text-decoration: none;
+}
+
+.otp-actions .btn-link:hover:not(:disabled) {
+  color: var(--tp-steel);
+  text-decoration: underline;
+}
+
+.otp-actions .btn-link:disabled {
+  color: var(--tp-muted, #6c757d);
+  opacity: .7;
+  pointer-events: none;
+}
+
 /* --- Contact & About --- */
 .contact-hero {
   position: relative;

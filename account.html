@@ -1,10 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>ورود و ثبت‌نام | تتا</title>
-  <meta name="description" content="ورود یا ثبت‌نام در فروشگاه لوازم کولر تتا">
+  <title>ورود | تتا</title>
+  <meta name="description" content="ورود به فروشگاه لوازم کولر تتا با کد یک‌بار مصرف">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0A1057">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -68,7 +68,7 @@
 
         <div class="header-actions">
           <a class="action-btn d-none d-sm-inline-flex" href="account.html">
-            <i class="bi bi-person" aria-hidden="true"></i><span class="d-none d-xl-inline">ورود | ثبت‌نام</span><span class="visually-hidden d-xl-none">حساب کاربری</span>
+            <i class="bi bi-person" aria-hidden="true"></i><span class="d-none d-xl-inline">ورود</span><span class="visually-hidden d-xl-none">حساب کاربری</span>
           </a>
           <a class="action-btn action-cart" href="cart.html" aria-label="سبد خرید، ۳ کالا">
             <span class="icon-wrap"><i class="bi bi-bag" aria-hidden="true"></i><span class="count">۳</span></span>
@@ -128,7 +128,7 @@
 
             <div class="d-lg-none mt-4 d-grid gap-2">
               <button class="btn btn-soft" type="button" data-bs-toggle="modal" data-bs-target="#garageModal"><i class="bi bi-car-front" aria-hidden="true"></i> انتخاب خودروی من</button>
-              <a class="btn btn-primary" href="account.html"><i class="bi bi-person" aria-hidden="true"></i> ورود | ثبت‌نام</a>
+              <a class="btn btn-primary" href="account.html"><i class="bi bi-person" aria-hidden="true"></i> ورود</a>
               <a class="btn btn-outline-primary" href="tel:+982112345678"><i class="bi bi-telephone" aria-hidden="true"></i> <span class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></a>
             </div>
           </div>
@@ -146,86 +146,61 @@
               <div class="auth-aside d-none d-lg-block">
                 <img src="assets/img/products/tire.svg" alt="" width="260" height="260">
                 <h2 class="fs-3">به تتا خوش آمدید</h2>
-                <p>با ساخت حساب کاربری، خرید قطعات خودرو ساده‌تر و مطمئن‌تر می‌شود.</p>
+                <p>با شماره موبایل وارد شوید؛ کد تأیید برایتان پیامک می‌شود.</p>
                 <ul>
+                  <li><i class="bi bi-phone" aria-hidden="true"></i>ورود سریع با کد یک‌بار مصرف</li>
                   <li><i class="bi bi-car-front" aria-hidden="true"></i>ذخیره‌ی خودروهای شما در «گاراژ من»</li>
                   <li><i class="bi bi-receipt" aria-hidden="true"></i>پیگیری لحظه‌ای سفارش‌ها</li>
-                  <li><i class="bi bi-bell" aria-hidden="true"></i>یادآور سرویس دوره‌ای و تعویض روغن</li>
                   <li><i class="bi bi-percent" aria-hidden="true"></i>تخفیف‌های اختصاصی اعضا</li>
                 </ul>
               </div>
 
-              <div class="auth-form">
-                <ul class="nav nav-pills nav-fill bg-sky-50 p-1 rounded-3 mb-4" role="tablist">
-                  <li class="nav-item" role="presentation"><button class="nav-link active" id="loginTab" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">ورود</button></li>
-                  <li class="nav-item" role="presentation"><button class="nav-link" id="registerTab" data-bs-toggle="pill" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">ثبت‌نام</button></li>
-                </ul>
+              <div class="auth-form" data-otp-login>
+                <div data-otp-step="phone">
+                  <h1 class="fs-4 mb-1">ورود به حساب</h1>
+                  <p class="fs-sm text-secondary mb-4">شماره موبایل خود را وارد کنید تا کد تأیید برایتان ارسال شود.</p>
+                  <form class="needs-validation d-grid gap-3" data-otp-phone novalidate>
+                    <div>
+                      <label class="form-label" for="otpPhone">شماره موبایل</label>
+                      <input class="form-control ltr" id="otpPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="09xxxxxxxxx" pattern="09[0-9]{9}" maxlength="11" required>
+                      <div class="invalid-feedback">شماره موبایل معتبر (۱۱ رقم، شروع با ۰۹) وارد کنید.</div>
+                    </div>
+                    <button class="btn btn-primary btn-lg" type="submit">
+                      <i class="bi bi-send" aria-hidden="true"></i> دریافت کد تأیید
+                    </button>
+                    <p class="fs-xs text-secondary mb-0 text-center">با ورود، <a href="contact.html">قوانین و حریم خصوصی</a> را می‌پذیرید.</p>
+                  </form>
+                </div>
 
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="loginTab" tabindex="0">
-                    <h1 class="fs-4 mb-1">ورود به حساب</h1>
-                    <p class="fs-sm text-secondary mb-4">برای ادامه، شماره موبایل یا ایمیل خود را وارد کنید.</p>
-                    <form class="needs-validation d-grid gap-3" action="index.html" data-success-alert="ورود با موفقیت انجام شد." novalidate>
-                      <div>
-                        <label class="form-label" for="lgUser">شماره موبایل یا ایمیل</label>
-                        <input class="form-control ltr" id="lgUser" name="username" type="text" autocomplete="username" spellcheck="false" required>
-                        <div class="invalid-feedback">این فیلد الزامی است.</div>
+                <div data-otp-step="code" hidden>
+                  <h1 class="fs-4 mb-1">کد تأیید را وارد کنید</h1>
+                  <p class="fs-sm text-secondary mb-4">
+                    کد ۵ رقمی به شماره
+                    <strong class="ltr d-inline-block" data-otp-phone-display></strong>
+                    ارسال شد.
+                  </p>
+                  <form class="needs-validation d-grid gap-3" data-otp-code action="index.html" data-success-alert="ورود با موفقیت انجام شد." novalidate>
+                    <div>
+                      <label class="form-label" for="otpDigit0">کد یک‌بار مصرف</label>
+                      <div class="otp-digits ltr" data-otp-digits role="group" aria-label="کد تأیید ۵ رقمی">
+                        <input class="form-control otp-digit" id="otpDigit0" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1" pattern="[0-9]" aria-label="رقم ۱" required>
+                        <input class="form-control otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="رقم ۲" required>
+                        <input class="form-control otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="رقم ۳" required>
+                        <input class="form-control otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="رقم ۴" required>
+                        <input class="form-control otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="رقم ۵" required>
                       </div>
-                      <div>
-                        <div class="d-flex justify-content-between">
-                          <label class="form-label" for="lgPass">رمز عبور</label>
-                          <a class="fs-xs" href="#">فراموشی رمز عبور</a>
-                        </div>
-                        <input class="form-control ltr" id="lgPass" name="password" type="password" autocomplete="current-password" required>
-                        <div class="invalid-feedback">رمز عبور را وارد کنید.</div>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="lgRemember">
-                        <label class="form-check-label fs-sm" for="lgRemember">مرا به خاطر بسپار</label>
-                      </div>
-                      <button class="btn btn-primary btn-lg" type="submit">ورود</button>
-                      <div class="text-center fs-sm text-secondary">یا</div>
-                      <button class="btn btn-outline-primary" type="button"><i class="bi bi-phone" aria-hidden="true"></i> ورود با کد یک‌بار مصرف</button>
-                    </form>
-                  </div>
-
-                  <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="registerTab" tabindex="0">
-                    <h2 class="fs-4 mb-1">ساخت حساب کاربری</h2>
-                    <p class="fs-sm text-secondary mb-4">کمتر از یک دقیقه زمان می‌برد.</p>
-                    <form class="needs-validation row g-3" action="index.html" data-success-alert="ثبت‌نام شما با موفقیت انجام شد." novalidate>
-                      <div class="col-sm-6">
-                        <label class="form-label" for="rgName">نام</label>
-                        <input class="form-control" id="rgName" name="first_name" type="text" autocomplete="given-name" required>
-                        <div class="invalid-feedback">نام را وارد کنید.</div>
-                      </div>
-                      <div class="col-sm-6">
-                        <label class="form-label" for="rgFamily">نام خانوادگی</label>
-                        <input class="form-control" id="rgFamily" name="last_name" type="text" autocomplete="family-name" required>
-                        <div class="invalid-feedback">نام خانوادگی را وارد کنید.</div>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="rgPhone">شماره موبایل</label>
-                        <input class="form-control ltr" id="rgPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxxx" pattern="09[0-9]{9}" required>
-                        <div class="invalid-feedback">شماره موبایل معتبر وارد کنید.</div>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label" for="rgPass">رمز عبور</label>
-                        <input class="form-control ltr" id="rgPass" name="password" type="password" autocomplete="new-password" minlength="8" required>
-                        <div class="form-text">حداقل ۸ کاراکتر.</div>
-                        <div class="invalid-feedback">رمز عبور باید حداقل ۸ کاراکتر باشد.</div>
-                      </div>
-                      <div class="col-12">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="rgTerms" required>
-                          <label class="form-check-label fs-sm" for="rgTerms"><a href="contact.html">قوانین و حریم خصوصی</a> را می‌پذیرم.</label>
-                          <div class="invalid-feedback">پذیرش قوانین الزامی است.</div>
-                        </div>
-                      </div>
-                      <div class="col-12 d-grid">
-                        <button class="btn btn-primary btn-lg" type="submit">ثبت‌نام</button>
-                      </div>
-                    </form>
-                  </div>
+                      <input type="hidden" name="otp" data-otp-value value="" required>
+                      <div class="invalid-feedback d-block" data-otp-error hidden>کد ۵ رقمی را کامل وارد کنید.</div>
+                    </div>
+                    <button class="btn btn-primary btn-lg" type="submit">تأیید و ورود</button>
+                    <div class="otp-actions fs-sm">
+                      <button class="btn btn-link p-0" type="button" data-otp-resend disabled>
+                        ارسال مجدد کد
+                        <span data-otp-timer></span>
+                      </button>
+                      <button class="btn btn-link p-0" type="button" data-otp-change-phone>تغییر شماره موبایل</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

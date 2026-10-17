@@ -375,11 +375,163 @@
     update();
   });
 
+  // OTP login (phone → code)
+  document.querySelectorAll('[data-otp-login]').forEach((root) => {
+    const phoneStep = root.querySelector('[data-otp-step="phone"]');
+    const codeStep = root.querySelector('[data-otp-step="code"]');
+    const phoneForm = root.querySelector('[data-otp-phone]');
+    const codeForm = root.querySelector('[data-otp-code]');
+    const phoneInput = root.querySelector('#otpPhone');
+    const phoneDisplay = root.querySelector('[data-otp-phone-display]');
+    const digitsWrap = root.querySelector('[data-otp-digits]');
+    const digits = digitsWrap ? Array.from(digitsWrap.querySelectorAll('.otp-digit')) : [];
+    const otpValue = root.querySelector('[data-otp-value]');
+    const otpError = root.querySelector('[data-otp-error]');
+    const resendBtn = root.querySelector('[data-otp-resend]');
+    const timerEl = root.querySelector('[data-otp-timer]');
+    const changeBtn = root.querySelector('[data-otp-change-phone]');
+    if (!phoneStep || !codeStep || !phoneForm || !codeForm || !phoneInput) return;
+
+    const RESEND_SECONDS = 90;
+    let timerId = null;
+    let remaining = 0;
+
+    const toLatinDigits = (value) => String(value || '').replace(/[۰-۹]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+
+    const syncOtpValue = () => {
+      const code = digits.map((input) => toLatinDigits(input.value).replace(/\D/g, '').slice(-1)).join('');
+      if (otpValue) otpValue.value = code;
+      if (otpError) otpError.hidden = code.length === digits.length;
+      return code;
+    };
+
+    const clearDigits = () => {
+      digits.forEach((input) => { input.value = ''; });
+      syncOtpValue();
+    };
+
+    const stopTimer = () => {
+      if (timerId) window.clearInterval(timerId);
+      timerId = null;
+    };
+
+    const startTimer = () => {
+      stopTimer();
+      remaining = RESEND_SECONDS;
+      if (resendBtn) resendBtn.disabled = true;
+      const tick = () => {
+        if (timerEl) timerEl.textContent = remaining > 0 ? `(${faNumber.format(remaining)})` : '';
+        if (remaining <= 0) {
+          stopTimer();
+          if (resendBtn) resendBtn.disabled = false;
+          return;
+        }
+        remaining -= 1;
+      };
+      tick();
+      timerId = window.setInterval(tick, 1000);
+    };
+
+    const showStep = (step) => {
+      phoneStep.hidden = step !== 'phone';
+      codeStep.hidden = step !== 'code';
+      if (step === 'code') {
+        clearDigits();
+        startTimer();
+        window.requestAnimationFrame(() => digits[0]?.focus());
+      } else {
+        stopTimer();
+        if (timerEl) timerEl.textContent = '';
+        if (resendBtn) resendBtn.disabled = true;
+        window.requestAnimationFrame(() => phoneInput.focus());
+      }
+    };
+
+    phoneInput.addEventListener('input', () => {
+      phoneInput.value = toLatinDigits(phoneInput.value).replace(/\D/g, '').slice(0, 11);
+    });
+
+    digits.forEach((input, index) => {
+      input.addEventListener('input', () => {
+        const raw = toLatinDigits(input.value).replace(/\D/g, '');
+        if (raw.length > 1) {
+          // Paste / autofill: distribute across boxes
+          raw.slice(0, digits.length - index).split('').forEach((char, offset) => {
+            const target = digits[index + offset];
+            if (target) target.value = char;
+          });
+          const next = digits[Math.min(index + raw.length, digits.length - 1)];
+          next?.focus();
+        } else {
+          input.value = raw.slice(-1);
+          if (input.value && digits[index + 1]) digits[index + 1].focus();
+        }
+        syncOtpValue();
+      });
+
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Backspace' && !input.value && digits[index - 1]) {
+          digits[index - 1].focus();
+          digits[index - 1].value = '';
+          syncOtpValue();
+        }
+        if (event.key === 'ArrowLeft' && digits[index - 1]) digits[index - 1].focus();
+        if (event.key === 'ArrowRight' && digits[index + 1]) digits[index + 1].focus();
+      });
+
+      input.addEventListener('paste', (event) => {
+        event.preventDefault();
+        const pasted = toLatinDigits(event.clipboardData?.getData('text') || '').replace(/\D/g, '').slice(0, digits.length);
+        pasted.split('').forEach((char, offset) => {
+          if (digits[offset]) digits[offset].value = char;
+        });
+        syncOtpValue();
+        digits[Math.min(pasted.length, digits.length - 1)]?.focus();
+      });
+    });
+
+    phoneForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!phoneForm.checkValidity()) {
+        phoneForm.classList.add('was-validated');
+        return;
+      }
+      phoneForm.classList.add('was-validated');
+      if (phoneDisplay) phoneDisplay.textContent = phoneInput.value;
+      showStep('code');
+    });
+
+    codeForm.addEventListener('submit', (event) => {
+      const code = syncOtpValue();
+      if (code.length !== digits.length) {
+        event.preventDefault();
+        event.stopPropagation();
+        codeForm.classList.add('was-validated');
+        if (otpError) otpError.hidden = false;
+        digits[0]?.focus();
+      }
+    });
+
+    resendBtn?.addEventListener('click', () => {
+      if (resendBtn.disabled) return;
+      clearDigits();
+      startTimer();
+      digits[0]?.focus();
+    });
+
+    changeBtn?.addEventListener('click', () => {
+      codeForm.classList.remove('was-validated');
+      phoneForm.classList.remove('was-validated');
+      showStep('phone');
+    });
+  });
+
   // Form submit: validate (if needed) then show success alert
   document.addEventListener('submit', (event) => {
     const form = event.target;
     if (!(form instanceof HTMLFormElement)) return;
-    if (form.matches('.header-search, [role="search"], .modal-content, [data-shop-filters]')) return;
+    if (form.matches('.header-search, [role="search"], .modal-content, [data-shop-filters], [data-otp-phone]')) return;
 
     const shouldAlert = form.hasAttribute('data-success-alert') || form.classList.contains('needs-validation');
     if (!shouldAlert) return;
@@ -389,6 +541,16 @@
       event.stopPropagation();
       form.classList.add('was-validated');
       return;
+    }
+
+    if (form.matches('[data-otp-code]')) {
+      const otpField = form.querySelector('[data-otp-value]');
+      if (otpField && String(otpField.value || '').length !== 5) {
+        event.preventDefault();
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+      }
     }
 
     event.preventDefault();
@@ -401,7 +563,7 @@
     }
   });
 
-  // Open a tab from the URL hash (e.g. account.html#register)
+  // Open a tab from the URL hash (e.g. contact.html#faq)
   const hashTab = window.location.hash && document.querySelector(`[data-bs-toggle="pill"][data-bs-target="${window.location.hash}"], [data-bs-toggle="tab"][data-bs-target="${window.location.hash}"]`);
   if (hashTab && window.bootstrap) window.bootstrap.Tab.getOrCreateInstance(hashTab).show();
 
