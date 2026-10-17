@@ -1329,7 +1329,26 @@ img, svg { max-width: 100%; height: auto; }
     --bs-gutter-y: .45rem;
   }
 
-  /* باز شدن زیرمنوی فروشگاه با هاور؛ کلیک می‌رود به shop.html */
+  /* باز شدن زیرمنوی محصولات با هاور؛ کلیک می‌رود به shop.html */
+  .header-nav .nav-shop > .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+  }
+
+  .header-nav .nav-shop-caret {
+    font-size: .7rem;
+    line-height: 1;
+    opacity: .7;
+    transition: transform .2s var(--tp-ease), opacity .2s;
+  }
+
+  .header-nav .nav-shop:hover > .nav-link .nav-shop-caret,
+  .header-nav .nav-shop.show > .nav-link .nav-shop-caret {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+
   .header-nav .nav-shop:hover > .dropdown-menu,
   .header-nav .nav-shop.show > .dropdown-menu {
     display: block;
@@ -1340,6 +1359,18 @@ img, svg { max-width: 100%; height: auto; }
   .header-nav { border-top: 0; }
   .header-nav .offcanvas-header { border-bottom: 1px solid var(--tp-border); }
   .header-nav .navbar-nav .nav-link { padding: .75rem .25rem; border-bottom: 1px solid var(--tp-border); }
+  .header-nav .nav-shop > .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+  }
+
+  .header-nav .nav-shop-caret {
+    font-size: .75rem;
+    opacity: .65;
+  }
+
   .header-nav .nav-cats { display: flex; justify-content: space-between; padding: .7rem 1rem !important; margin: 0 0 .5rem; border-bottom: 0 !important; }
 
   .mega-menu {
