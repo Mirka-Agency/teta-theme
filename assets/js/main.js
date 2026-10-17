@@ -199,6 +199,27 @@
     setCategory(initial);
   });
 
+  // Video single: play placeholder + chapter highlight
+  document.querySelectorAll('[data-video-player]').forEach((player) => {
+    const playBtn = player.querySelector('[data-video-play]');
+    const embed = player.querySelector('[data-video-embed]');
+
+    playBtn?.addEventListener('click', () => {
+      player.classList.add('is-playing');
+      if (embed) embed.hidden = false;
+      playBtn.setAttribute('aria-pressed', 'true');
+    });
+  });
+
+  document.querySelectorAll('.video-chapter-list').forEach((list) => {
+    list.addEventListener('click', (event) => {
+      const chapter = event.target.closest('.video-chapter');
+      if (!chapter || !list.contains(chapter)) return;
+      list.querySelectorAll('.video-chapter').forEach((el) => el.classList.remove('is-active'));
+      chapter.classList.add('is-active');
+    });
+  });
+
   // Shop mega menu: hover on desktop only; click navigates to shop.html
   const shopNav = document.querySelector('.header-nav .nav-shop');
   if (shopNav) {
