@@ -4002,10 +4002,6 @@ img, svg { max-width: 100%; height: auto; }
   color: var(--tp-muted);
 }
 
-.about-cta-btn {
-  white-space: nowrap;
-}
-
 .milestones {
   display: grid;
   grid-template-columns: minmax(220px, .9fr) minmax(0, 1.4fr);
@@ -4074,7 +4070,6 @@ img, svg { max-width: 100%; height: auto; }
   color: var(--tp-muted);
 }
 
-/* Tablet */
 @media (max-width: 991.98px) {
   .about-story .section-title {
     font-size: clamp(1.25rem, 1.05rem + 1vw, 1.55rem);
@@ -4102,7 +4097,6 @@ img, svg { max-width: 100%; height: auto; }
   }
 }
 
-/* Phone */
 @media (max-width: 767.98px) {
   .about-stat {
     min-height: 7rem;
@@ -4161,10 +4155,6 @@ img, svg { max-width: 100%; height: auto; }
   .milestone-list p {
     font-size: .85rem;
     line-height: 1.8;
-  }
-
-  .about-cta-btn {
-    width: 100%;
   }
 }
 
