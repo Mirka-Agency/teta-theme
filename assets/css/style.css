@@ -1352,7 +1352,7 @@ img, svg { max-width: 100%; height: auto; }
    ========================================================================== */
 .hero {
   position: relative;
-  padding-block: 3rem 6.5rem;
+  padding-block: 3rem 5rem;
   overflow: hidden;
   background:
     radial-gradient(900px 420px at 15% 0%, var(--tp-sky-100), transparent 65%),
@@ -1646,7 +1646,12 @@ img, svg { max-width: 100%; height: auto; }
 .finder {
   position: relative;
   z-index: 2;
-  margin-top: -4rem;
+  margin-block: -2.75rem;
+}
+
+/* فضای کافی زیر کارت تا عنوان سکشن بعدی نخورد */
+.finder + .section {
+  padding-top: clamp(5.5rem, 4.5rem + 3vw, 7rem);
 }
 
 .finder-card {
@@ -4916,7 +4921,11 @@ body {
   }
 
   .finder {
-    margin-top: -2rem;
+    margin-block: -2.25rem;
+  }
+
+  .finder + .section {
+    padding-top: clamp(5rem, 4rem + 4vw, 6.5rem);
   }
 
   .finder-card {
@@ -5083,7 +5092,7 @@ body {
 
 @media (max-width: 575.98px) {
   .hero {
-    padding-block: 1.1rem 2.75rem;
+    padding-block: 1.1rem 3rem;
   }
 
   .hero-layout {
@@ -5107,7 +5116,11 @@ body {
   }
 
   .finder {
-    margin-top: -1.5rem;
+    margin-block: -2rem;
+  }
+
+  .finder + .section {
+    padding-top: clamp(4.75rem, 4rem + 3vw, 6rem);
   }
 
   .finder-card {
