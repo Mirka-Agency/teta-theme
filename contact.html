@@ -66,7 +66,10 @@
         </form>
 
         <div class="header-actions">
-          <a class="action-btn d-none d-sm-inline-flex" href="account.html">
+          <button class="action-btn action-search d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSearch" aria-expanded="false" aria-controls="mobileSearch" aria-label="جستجو">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+          <a class="action-btn d-none d-lg-inline-flex" href="account.html">
             <i class="bi bi-person" aria-hidden="true"></i><span class="d-none d-xl-inline">ورود</span><span class="visually-hidden d-xl-none">حساب کاربری</span>
           </a>
           <a class="action-btn action-cart" href="cart.html" aria-label="سبد خرید، ۳ کالا">
@@ -75,13 +78,15 @@
           </a>
         </div>
       </div>
-
-      <div class="container d-lg-none pt-3">
-        <form class="header-search mw-100" action="shop.html" role="search">
-          <label class="visually-hidden" for="searchQMobile">جستجوی قطعه</label>
-          <input class="form-control" type="search" id="searchQMobile" name="q" placeholder="جستجوی قطعه یا شماره فنی…" autocomplete="off">
-          <button type="submit" aria-label="جستجو"><i class="bi bi-search" aria-hidden="true"></i></button>
-        </form>
+    
+      <div class="collapse header-search-panel d-lg-none" id="mobileSearch">
+        <div class="container py-2">
+          <form class="header-search mw-100" action="shop.html" role="search">
+            <label class="visually-hidden" for="searchQMobile">جستجوی قطعه</label>
+            <input class="form-control" type="search" id="searchQMobile" name="q" placeholder="جستجوی قطعه یا شماره فنی…" autocomplete="off">
+            <button type="submit" aria-label="جستجو"><i class="bi bi-search" aria-hidden="true"></i></button>
+          </form>
+        </div>
       </div>
     </div>
 

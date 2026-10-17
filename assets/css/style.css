@@ -864,26 +864,72 @@ img, svg { max-width: 100%; height: auto; }
   }
 
   .header-main {
-    padding-block: .7rem;
+    padding-block: .55rem;
   }
 
   .header-main > .container {
     min-width: 0;
+    gap: .5rem;
+  }
+
+  .btn-menu {
+    width: 40px;
+    height: 40px;
+    font-size: 1.45rem;
   }
 
   .brand {
     min-width: 0;
-    max-width: calc(100% - 7.5rem);
+    margin-inline-end: auto;
   }
 
-  .brand-text {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .brand-logo {
+    height: 24px;
   }
 
-  .header-main > .container.d-lg-none {
-    padding-top: .65rem !important;
+  .header-actions {
+    gap: .15rem;
+    margin-inline-start: 0;
+  }
+
+  .header-actions .action-search,
+  .header-actions .action-cart {
+    height: 40px;
+    padding: 0 .55rem;
+    border-radius: 10px;
+  }
+
+  .header-actions .action-search > i,
+  .header-actions .action-cart > i,
+  .header-actions .action-cart .icon-wrap > i {
+    font-size: 1.25rem;
+  }
+
+  .header-actions .action-search.is-open {
+    color: var(--tp-navy);
+    background: var(--tp-sky-50);
+  }
+
+  .header-search-panel {
+    border-top: 1px solid var(--tp-border);
+    background: #fff;
+  }
+
+  .header-search-panel .header-search {
+    max-width: none;
+    height: 44px;
+  }
+
+  .header-search-panel .header-search .form-control {
+    padding-block: .4rem;
+    font-size: .9rem;
+  }
+
+  .header-search-panel .header-search > button[type="submit"] {
+    width: 36px;
+    height: 36px;
+    margin: 4px;
+    font-size: .95rem;
   }
 }
 

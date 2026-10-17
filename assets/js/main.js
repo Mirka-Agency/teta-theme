@@ -678,4 +678,18 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeAllSelects();
   });
+
+  // Mobile header search: focus input when panel opens
+  const mobileSearch = document.getElementById('mobileSearch');
+  const searchToggle = document.querySelector('.action-search');
+  if (mobileSearch && searchToggle) {
+    mobileSearch.addEventListener('shown.bs.collapse', () => {
+      searchToggle.classList.add('is-open');
+      const input = mobileSearch.querySelector('input[type="search"]');
+      if (input) input.focus();
+    });
+    mobileSearch.addEventListener('hidden.bs.collapse', () => {
+      searchToggle.classList.remove('is-open');
+    });
+  }
 })();
