@@ -2354,11 +2354,11 @@ img, svg { max-width: 100%; height: auto; }
   height: 3.1rem;
   font-size: 1.55rem;
   color: #fff;
-  background: color-mix(in srgb, var(--tp-accent) 92%, #fff);
+  background: var(--tp-steel);
   border-radius: 50%;
   box-shadow:
     0 0 0 6px rgba(255, 255, 255, .18),
-    0 14px 28px -10px rgba(232, 89, 12, .55);
+    0 14px 28px -10px rgba(10, 16, 87, .45);
   transition: transform .3s var(--tp-ease), box-shadow .3s var(--tp-ease);
 }
 
@@ -2366,7 +2366,7 @@ img, svg { max-width: 100%; height: auto; }
   transform: scale(1.08);
   box-shadow:
     0 0 0 8px rgba(255, 255, 255, .22),
-    0 18px 32px -10px rgba(232, 89, 12, .65);
+    0 18px 32px -10px rgba(10, 16, 87, .55);
 }
 
 .post-video-duration {
@@ -2387,11 +2387,11 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 .post-type-chip {
-  color: var(--tp-accent-700) !important;
-  background: color-mix(in srgb, var(--tp-accent) 14%, #fff) !important;
+  color: var(--tp-steel-700) !important;
+  background: var(--tp-sky-100) !important;
 }
 
-.post-type-chip i { color: var(--tp-accent-700) !important; }
+.post-type-chip i { color: var(--tp-steel-700) !important; }
 
 .post-type-chip--lg {
   display: inline-flex;
@@ -2401,8 +2401,8 @@ img, svg { max-width: 100%; height: auto; }
   margin-bottom: .85rem;
   font-size: .78rem;
   font-weight: 700;
-  color: var(--tp-accent-700);
-  background: color-mix(in srgb, var(--tp-accent) 14%, #fff);
+  color: var(--tp-steel-700);
+  background: var(--tp-sky-100);
   border-radius: 999px;
 }
 
@@ -2479,21 +2479,22 @@ img, svg { max-width: 100%; height: auto; }
   padding: 0;
   color: #fff;
   font-size: 2.1rem;
-  background: color-mix(in srgb, var(--tp-accent) 94%, #fff);
+  background: var(--tp-steel);
   border: 0;
   border-radius: 50%;
   box-shadow:
     0 0 0 10px rgba(255, 255, 255, .14),
-    0 18px 40px -12px rgba(232, 89, 12, .6);
+    0 18px 40px -12px rgba(10, 16, 87, .5);
   cursor: pointer;
-  transition: transform .25s var(--tp-ease), box-shadow .25s var(--tp-ease);
+  transition: transform .25s var(--tp-ease), box-shadow .25s var(--tp-ease), background-color .25s;
 }
 
 .video-player-play:hover {
+  background: var(--tp-navy);
   transform: scale(1.06);
   box-shadow:
     0 0 0 12px rgba(255, 255, 255, .18),
-    0 22px 44px -12px rgba(232, 89, 12, .7);
+    0 22px 44px -12px rgba(10, 16, 87, .6);
 }
 
 .video-player-play:focus-visible {
@@ -2523,7 +2524,7 @@ img, svg { max-width: 100%; height: auto; }
 .video-player-progress > span {
   display: block;
   height: 100%;
-  background: var(--tp-accent);
+  background: var(--tp-steel);
   border-radius: inherit;
 }
 
@@ -2748,13 +2749,13 @@ img, svg { max-width: 100%; height: auto; }
   background:
     linear-gradient(180deg, #fff 0%, var(--tp-sky-50) 100%);
   border-color: color-mix(in srgb, var(--tp-steel) 35%, var(--tp-border));
-  border-inline-start: 4px solid var(--tp-accent);
+  border-inline-start: 4px solid var(--tp-steel);
   box-shadow: var(--tp-shadow-sm);
 }
 
 .post-cta--video .post-cta-badge {
-  color: var(--tp-accent-700);
-  background: color-mix(in srgb, var(--tp-accent) 14%, #fff);
+  color: var(--tp-steel-700);
+  background: var(--tp-sky-100);
 }
 
 .post-cta--video .post-cta-title {
