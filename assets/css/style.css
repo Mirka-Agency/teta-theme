@@ -3860,8 +3860,12 @@ img, svg { max-width: 100%; height: auto; }
 
 .map-pin i::before { transform: rotate(45deg); }
 
+.about-story {
+  min-width: 0;
+}
+
 .about-story .section-title {
-  line-height: 1.55;
+  text-wrap: balance;
 }
 
 .about-stats {
@@ -3879,7 +3883,7 @@ img, svg { max-width: 100%; height: auto; }
 
 .about-stats__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   overflow: hidden;
   background: #fff;
   border-radius: var(--tp-radius);
@@ -3917,7 +3921,7 @@ img, svg { max-width: 100%; height: auto; }
 
 .about-stat strong {
   display: block;
-  font-size: clamp(1.55rem, 1.15rem + 1.6vw, 2.45rem);
+  font-size: clamp(1.55rem, 1.2rem + 1.6vw, 2.45rem);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -.04em;
@@ -3954,6 +3958,10 @@ img, svg { max-width: 100%; height: auto; }
   color: var(--tp-muted);
 }
 
+.about-cta-btn {
+  white-space: nowrap;
+}
+
 .milestones {
   display: grid;
   grid-template-columns: minmax(220px, .9fr) minmax(0, 1.4fr);
@@ -3978,8 +3986,8 @@ img, svg { max-width: 100%; height: auto; }
   margin: 0;
   padding: 0;
   list-style: none;
-  min-width: 0;
   border-top: 1px solid var(--tp-border);
+  min-width: 0;
 }
 
 .milestone-list li {
@@ -4022,12 +4030,17 @@ img, svg { max-width: 100%; height: auto; }
   color: var(--tp-muted);
 }
 
-.about-cta-btn {
-  white-space: nowrap;
-}
-
 /* Tablet */
 @media (max-width: 991.98px) {
+  .about-story .section-title {
+    font-size: clamp(1.25rem, 1.05rem + 1vw, 1.55rem);
+  }
+
+  .about-stats {
+    max-width: 28rem;
+    margin-inline: auto;
+  }
+
   .milestones {
     grid-template-columns: 1fr;
     gap: 1.75rem;
@@ -4039,29 +4052,21 @@ img, svg { max-width: 100%; height: auto; }
   }
 
   .milestone-list li {
-    grid-template-columns: 6rem minmax(0, 1fr);
+    grid-template-columns: 6.25rem minmax(0, 1fr);
     gap: 1rem 1.25rem;
-    padding: 1.45rem 0;
+    padding: 1.4rem 0;
   }
 }
 
-/* Phone / small tablet */
+/* Phone */
 @media (max-width: 767.98px) {
-  .about-story .section-title {
-    font-size: clamp(1.2rem, 1.05rem + 1.4vw, 1.55rem);
-  }
-
-  .about-stats {
-    padding: 4px;
-  }
-
   .about-stat {
     min-height: 7rem;
     padding: 1.15rem 1rem 1.05rem;
   }
 
   .about-stat strong {
-    font-size: clamp(1.35rem, 1.1rem + 1.4vw, 1.85rem);
+    font-size: clamp(1.4rem, 1.15rem + 2.2vw, 1.85rem);
   }
 
   .about-stat span {
@@ -4069,12 +4074,23 @@ img, svg { max-width: 100%; height: auto; }
   }
 
   .value-card {
-    padding: 1.35rem 1.25rem;
+    padding: 1.25rem 1.15rem;
+  }
+
+  .value-card .icon-box {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
   }
 
   .value-card h3 {
     margin-block: .85rem .4rem;
     font-size: .95rem;
+  }
+
+  .value-card p {
+    font-size: .82rem;
+    line-height: 1.75;
   }
 
   .milestone-list li {
@@ -4083,16 +4099,23 @@ img, svg { max-width: 100%; height: auto; }
     padding: 1.25rem 0;
   }
 
+  .milestone-list li:hover {
+    background: linear-gradient(180deg, var(--tp-sky-50), transparent);
+    margin-inline: -.5rem;
+    padding-inline: .5rem;
+    border-radius: var(--tp-radius-sm);
+  }
+
   .milestone-list time {
     font-size: 1.3rem;
   }
 
   .milestone-list h3 {
-    font-size: 1rem;
+    font-size: .98rem;
   }
 
   .milestone-list p {
-    font-size: .875rem;
+    font-size: .85rem;
     line-height: 1.8;
   }
 
@@ -4102,13 +4125,13 @@ img, svg { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 575.98px) {
+  .about-stats {
+    max-width: none;
+  }
+
   .about-stat {
     min-height: 6.5rem;
     padding: 1rem .85rem .95rem;
-  }
-
-  .value-card {
-    padding: 1.2rem 1.1rem;
   }
 }
 
@@ -4441,24 +4464,6 @@ img, svg { max-width: 100%; height: auto; }
   .trust-badges {
     grid-template-columns: 1fr;
   }
-}
-
-.payments {
-  display: flex;
-  align-items: center;
-  gap: .55rem;
-  font-size: 1.35rem;
-  color: rgba(255, 255, 255, .7);
-}
-
-.payments span {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 32px;
-  background: rgba(255, 255, 255, .08);
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 8px;
 }
 
 .mobile-nav {
