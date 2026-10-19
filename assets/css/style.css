@@ -6193,9 +6193,14 @@ body {
   border-radius: var(--tp-radius);
 }
 
+.wholesale-banner > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .wholesale-banner p {
   margin: 0;
-  max-width: 42rem;
+  max-width: none;
   font-size: .9rem;
   line-height: 1.8;
   color: var(--tp-body);
