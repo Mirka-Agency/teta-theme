@@ -16,20 +16,6 @@
 <body>
   <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
 
-  <!-- Topbar -->
-  <div class="topbar d-none d-md-block">
-    <div class="container">
-      <div class="d-flex align-items-center gap-4">
-        <span><i class="bi bi-truck" aria-hidden="true"></i>ارسال رایگان برای سفارش‌های بالای ۳ میلیون تومان</span>
-        <span class="d-none d-lg-inline"><i class="bi bi-boxes" aria-hidden="true"></i>فروش تک و عمده — ویژه تعمیرگاه و فروشنده</span>
-      </div>
-      <ul class="topbar-links">
-        <li><a href="account.html#orders">پیگیری سفارش</a></li>
-        <li><a href="contact.html#faq">سوالات متداول</a></li>
-        <li><a href="tel:+982112345678"><i class="bi bi-telephone" aria-hidden="true"></i><span class="ltr">۰۲۱-۱۲۳۴۵۶۷۸</span></a></li>
-      </ul>
-    </div>
-  </div>
 
   <!-- Header -->
   <header class="site-header sticky-top">
@@ -154,9 +140,7 @@
           <div class="hero-visual">
             <span class="ring" aria-hidden="true"></span>
             <span class="blob" aria-hidden="true"></span>
-            <img src="assets/img/products/radiator.png" alt="رادیاتور و کندانسور کولر خودرو" width="420" height="420">
-            <div class="hero-chip is-top"><i class="bi bi-patch-check" aria-hidden="true"></i><div>ضمانت اصالت<small>۱۰۰٪ اورجینال</small></div></div>
-            <div class="hero-chip is-bottom"><i class="bi bi-lightning-charge" aria-hidden="true"></i><div>ارسال اکسپرس<small>تحویل در همان روز</small></div></div>
+            <img src="assets/img/hero-ac-parts.png" alt="قطعات کولر و تهویه خودرو" width="420" height="420">
           </div>
           <div class="hero-stats" role="list">
             <div class="hero-stat" role="listitem">
@@ -194,90 +178,69 @@
               <span class="icon-box is-solid"><i class="bi bi-car-front" aria-hidden="true"></i></span>
               <div>
                 <h2 id="finderTitle">جستجوی قطعه</h2>
-                <p>بر اساس مشخصات خودرو یا شماره فنی قطعه</p>
+                <p>بر اساس مشخصات خودرو</p>
               </div>
             </div>
-            <ul class="nav nav-pills" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="byCarTab" data-bs-toggle="pill" data-bs-target="#byCar" type="button" role="tab" aria-controls="byCar" aria-selected="true">بر اساس خودرو</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="byOemTab" data-bs-toggle="pill" data-bs-target="#byOem" type="button" role="tab" aria-controls="byOem" aria-selected="false">شماره فنی (OEM)</button>
-              </li>
-            </ul>
           </div>
-          <div class="tab-content">
-            <form class="tab-pane fade show active" id="byCar" role="tabpanel" aria-labelledby="byCarTab" action="shop.html">
-              <div class="row g-3 align-items-end">
-                <div class="col-6 col-lg-3">
-                  <label class="form-label" for="fBrand">سازنده</label>
-                  <select class="form-select" id="fBrand" name="brand">
-                    <option value="">انتخاب سازنده</option>
-                    <option>ایران‌خودرو</option>
-                    <option>سایپا</option>
-                    <option>مدیران‌خودرو (MVM)</option>
-                    <option>تویوتا</option>
-                    <option>هیوندای</option>
-                    <option>کیا</option>
-                  </select>
-                </div>
-                <div class="col-6 col-lg-3">
-                  <label class="form-label" for="fModel">مدل</label>
-                  <select class="form-select" id="fModel" name="model">
-                    <option value="">انتخاب مدل</option>
-                    <option>پژو ۲۰۶</option>
-                    <option>پژو پارس</option>
-                    <option>سمند</option>
-                    <option>دنا پلاس</option>
-                    <option>تیبا</option>
-                  </select>
-                </div>
-                <div class="col-6 col-lg-2">
-                  <label class="form-label" for="fYear">سال ساخت</label>
-                  <select class="form-select" id="fYear" name="year">
-                    <option value="">همه سال‌ها</option>
-                    <option>۱۴۰۴</option>
-                    <option>۱۴۰۳</option>
-                    <option>۱۴۰۲</option>
-                    <option>۱۴۰۱</option>
-                    <option>۱۴۰۰</option>
-                  </select>
-                </div>
-                <div class="col-6 col-lg-2">
-                  <label class="form-label" for="fCat">دسته قطعه</label>
-                  <select class="form-select" id="fCat" name="cat">
-                    <option value="">همه دسته‌ها</option>
-                    <option value="condenser">کندانسور</option>
-                    <option value="compressor">کمپرسور</option>
-                    <option value="clutch-set">ست کلاچ کمپرسور</option>
-                    <option value="bobbin">بوبین کمپرسور</option>
-                    <option value="clutch">کلاچ کمپرسور</option>
-                    <option value="pulley">پولی کمپرسور</option>
-                    <option value="receiver-drier">رسیور درایر</option>
-                    <option value="pressure-switch">سوئیچ فشار</option>
-                    <option value="expansion-valve">شیر انبساط</option>
-                    <option value="fan-motor">موتور فن</option>
-                    <option value="oil-seal">کاسه نمد</option>
-                    <option value="bearing">بلبرینگ</option>
-                  </select>
-                </div>
-                <div class="col-12 col-lg-2 d-grid">
-                  <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> جستجو</button>
-                </div>
+          <form id="byCar" action="shop.html">
+            <div class="row g-3 align-items-end">
+              <div class="col-6 col-lg-3">
+                <label class="form-label" for="fBrand">سازنده</label>
+                <select class="form-select" id="fBrand" name="brand">
+                  <option value="">انتخاب سازنده</option>
+                  <option>ایران‌خودرو</option>
+                  <option>سایپا</option>
+                  <option>مدیران‌خودرو (MVM)</option>
+                  <option>تویوتا</option>
+                  <option>هیوندای</option>
+                  <option>کیا</option>
+                </select>
               </div>
-            </form>
-            <form class="tab-pane fade" id="byOem" role="tabpanel" aria-labelledby="byOemTab" action="shop.html">
-              <div class="row g-3 align-items-end">
-                <div class="col-lg-10">
-                  <label class="form-label" for="fOem">شماره فنی قطعه</label>
-                  <input class="form-control ltr" id="fOem" name="oem" type="text" placeholder="مثلاً 4249.34" spellcheck="false" autocomplete="off">
-                </div>
-                <div class="col-lg-2 d-grid">
-                  <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> جستجو</button>
-                </div>
+              <div class="col-6 col-lg-3">
+                <label class="form-label" for="fModel">مدل</label>
+                <select class="form-select" id="fModel" name="model">
+                  <option value="">انتخاب مدل</option>
+                  <option>پژو ۲۰۶</option>
+                  <option>پژو پارس</option>
+                  <option>سمند</option>
+                  <option>دنا پلاس</option>
+                  <option>تیبا</option>
+                </select>
               </div>
-            </form>
-          </div>
+              <div class="col-6 col-lg-2">
+                <label class="form-label" for="fYear">سال ساخت</label>
+                <select class="form-select" id="fYear" name="year">
+                  <option value="">همه سال‌ها</option>
+                  <option>۱۴۰۴</option>
+                  <option>۱۴۰۳</option>
+                  <option>۱۴۰۲</option>
+                  <option>۱۴۰۱</option>
+                  <option>۱۴۰۰</option>
+                </select>
+              </div>
+              <div class="col-6 col-lg-2">
+                <label class="form-label" for="fCat">دسته قطعه</label>
+                <select class="form-select" id="fCat" name="cat">
+                  <option value="">همه دسته‌ها</option>
+                  <option value="condenser">کندانسور</option>
+                  <option value="compressor">کمپرسور</option>
+                  <option value="clutch-set">ست کلاچ کمپرسور</option>
+                  <option value="bobbin">بوبین کمپرسور</option>
+                  <option value="clutch">کلاچ کمپرسور</option>
+                  <option value="pulley">پولی کمپرسور</option>
+                  <option value="receiver-drier">رسیور درایر</option>
+                  <option value="pressure-switch">سوئیچ فشار</option>
+                  <option value="expansion-valve">شیر انبساط</option>
+                  <option value="fan-motor">موتور فن</option>
+                  <option value="oil-seal">کاسه نمد</option>
+                  <option value="bearing">بلبرینگ</option>
+                </select>
+              </div>
+              <div class="col-12 col-lg-2 d-grid">
+                <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> جستجو</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
