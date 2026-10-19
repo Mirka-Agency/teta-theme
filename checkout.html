@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>تکمیل سفارش | تتا</title>
-  <meta name="description" content="ثبت اطلاعات ارسال و پرداخت سفارش">
+  <title>صدور پیش‌فاکتور | تتا</title>
+  <meta name="description" content="ثبت اطلاعات و درخواست صدور پیش‌فاکتور عمده — بدون پرداخت آنلاین">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0A1057">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -59,9 +59,9 @@
           <a class="action-btn d-none d-lg-inline-flex" href="account.html">
             <i class="bi bi-person" aria-hidden="true"></i><span class="d-none d-xl-inline">ورود</span><span class="visually-hidden d-xl-none">حساب کاربری</span>
           </a>
-          <a class="action-btn action-cart" href="cart.html" aria-label="سبد خرید، ۳ کالا">
+          <a class="action-btn action-cart" href="cart.html" aria-label="سبد پیش‌فاکتور، ۳ کالا">
             <span class="icon-wrap"><i class="bi bi-bag" aria-hidden="true"></i><span class="count">۳</span></span>
-            <span class="cart-text d-none d-xl-block"><small>سبد خرید</small>۳٬۰۹۰٬۰۰۰ تومان</span>
+            <span class="cart-text d-none d-xl-block"><small>پیش‌فاکتور</small>۳٬۰۹۰٬۰۰۰ تومان</span>
           </a>
         </div>
       </div>
@@ -130,33 +130,50 @@
   <main id="main">
     <div class="page-hero">
       <div class="container">
-        <ol class="steps" aria-label="مراحل خرید">
+        <ol class="steps" aria-label="مراحل پیش‌فاکتور">
           <li class="step is-done"><span class="step-num"><i class="bi bi-check-lg" aria-hidden="true"></i></span><span class="step-label">سبد خرید</span></li>
           <li class="step-line is-done" aria-hidden="true"></li>
-          <li class="step is-current" aria-current="step"><span class="step-num">۲</span><span class="step-label">ارسال و پرداخت</span></li>
+          <li class="step is-current" aria-current="step"><span class="step-num">۲</span><span class="step-label">اطلاعات پیش‌فاکتور</span></li>
           <li class="step-line" aria-hidden="true"></li>
-          <li class="step"><span class="step-num">۳</span><span class="step-label">ثبت نهایی</span></li>
+          <li class="step"><span class="step-num">۳</span><span class="step-label">صدور پیش‌فاکتور</span></li>
         </ol>
       </div>
     </div>
 
     <section class="section pt-4">
       <div class="container">
-        <h1 class="visually-hidden">تکمیل سفارش</h1>
-        <form class="row g-4 needs-validation" action="index.html" data-success-alert="سفارش شما با موفقیت ثبت شد." novalidate>
+        <h1 class="visually-hidden">صدور پیش‌فاکتور</h1>
+        <form class="row g-4 needs-validation" action="index.html" data-success-alert="درخواست پیش‌فاکتور ثبت شد. فایل پیش‌فاکتور به‌زودی برای شما ارسال می‌شود." novalidate>
           <div class="col-lg-8 d-grid gap-4">
+            <div class="proforma-notice" role="note">
+              <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+              <div>
+                <strong>بدون پرداخت آنلاین</strong>
+                <p class="mb-0">پس از ثبت، پیش‌فاکتور عمده صادر می‌شود. انتقال به درگاه پرداخت انجام نمی‌شود؛ هماهنگی پرداخت بعد از تأیید پیش‌فاکتور است.</p>
+              </div>
+            </div>
+
             <div class="card-box">
-              <h2 class="card-box-title"><i class="bi bi-geo-alt" aria-hidden="true"></i>اطلاعات گیرنده و آدرس</h2>
+              <h2 class="card-box-title"><i class="bi bi-building" aria-hidden="true"></i>اطلاعات مجموعه و گیرنده</h2>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label class="form-label" for="coName">نام و نام خانوادگی</label>
+                  <label class="form-label" for="coCompany">نام مجموعه / تعمیرگاه</label>
+                  <input class="form-control" id="coCompany" name="company" type="text" autocomplete="organization" required>
+                  <div class="invalid-feedback">نام مجموعه را وارد کنید.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="coName">نام و نام خانوادگی مسئول</label>
                   <input class="form-control" id="coName" name="name" type="text" autocomplete="name" required>
-                  <div class="invalid-feedback">لطفاً نام گیرنده را وارد کنید.</div>
+                  <div class="invalid-feedback">لطفاً نام مسئول را وارد کنید.</div>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" for="coPhone">شماره موبایل</label>
                   <input class="form-control ltr" id="coPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxxx" pattern="09[0-9]{9}" required>
                   <div class="invalid-feedback">شماره موبایل معتبر وارد کنید (مثلاً ۰۹۱۲۱۲۳۴۵۶۷).</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="coEconomic">کد اقتصادی / شناسه ملی <span class="text-secondary fw-normal">— اختیاری</span></label>
+                  <input class="form-control ltr" id="coEconomic" name="economic" type="text" inputmode="numeric" autocomplete="off">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" for="coProvince">استان</label>
@@ -186,65 +203,41 @@
                   <div class="invalid-feedback">کد پستی ۱۰ رقمی وارد کنید.</div>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label" for="coVin">شماره شاسی (VIN) <span class="text-secondary fw-normal">— اختیاری</span></label>
-                  <input class="form-control ltr" id="coVin" name="vin" type="text" autocomplete="off" spellcheck="false" maxlength="17">
-                  <div class="form-text">برای تطبیق دقیق قطعات توسط کارشناس.</div>
+                  <label class="form-label" for="coNote">توضیحات پیش‌فاکتور <span class="text-secondary fw-normal">— اختیاری</span></label>
+                  <input class="form-control" id="coNote" name="note" type="text" placeholder="مثلاً مهلت اعتبار یا نحوه ارسال مورد نظر">
                 </div>
               </div>
             </div>
 
             <div class="card-box">
-              <h2 class="card-box-title"><i class="bi bi-truck" aria-hidden="true"></i>روش ارسال</h2>
+              <h2 class="card-box-title"><i class="bi bi-truck" aria-hidden="true"></i>روش تحویل پیشنهادی</h2>
               <div class="row g-3">
                 <div class="col-md-4">
                   <label class="option-card">
                     <input class="form-check-input" type="radio" name="shipping" value="express" checked>
-                    <span><strong>پیک فوری</strong><small>تهران — همان روز · رایگان</small></span>
+                    <span><strong>پیک فوری</strong><small>تهران — همان روز</small></span>
                   </label>
                 </div>
                 <div class="col-md-4">
                   <label class="option-card">
                     <input class="form-check-input" type="radio" name="shipping" value="post">
-                    <span><strong>پست پیشتاز</strong><small>۲ تا ۴ روز کاری · رایگان</small></span>
+                    <span><strong>پست / باربری</strong><small>۲ تا ۴ روز کاری</small></span>
                   </label>
                 </div>
                 <div class="col-md-4">
                   <label class="option-card">
                     <input class="form-check-input" type="radio" name="shipping" value="pickup">
-                    <span><strong>تحویل حضوری</strong><small>از فروشگاه · رایگان</small></span>
+                    <span><strong>تحویل حضوری</strong><small>از انبار / فروشگاه</small></span>
                   </label>
                 </div>
               </div>
-            </div>
-
-            <div class="card-box">
-              <h2 class="card-box-title"><i class="bi bi-credit-card" aria-hidden="true"></i>روش پرداخت</h2>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="option-card">
-                    <input class="form-check-input" type="radio" name="payment" value="online" checked>
-                    <i class="bi bi-credit-card-2-front opt-icon" aria-hidden="true"></i>
-                    <span><strong>پرداخت اینترنتی</strong><small>با تمام کارت‌های عضو شتاب</small></span>
-                  </label>
-                </div>
-                <div class="col-md-6">
-                  <label class="option-card">
-                    <input class="form-check-input" type="radio" name="payment" value="cod">
-                    <i class="bi bi-cash-coin opt-icon" aria-hidden="true"></i>
-                    <span><strong>پرداخت در محل</strong><small>فقط برای تهران با کارتخوان</small></span>
-                  </label>
-                </div>
-              </div>
-              <div class="mt-3">
-                <label class="form-label" for="coNote">توضیحات سفارش <span class="text-secondary fw-normal">— اختیاری</span></label>
-                <textarea class="form-control" id="coNote" name="note" rows="2"></textarea>
-              </div>
+              <p class="fs-sm text-secondary mt-3 mb-0">روش نهایی ارسال پس از تأیید پیش‌فاکتور با شما هماهنگ می‌شود.</p>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <aside class="summary-card" aria-label="خلاصه سفارش">
-              <h2 class="fs-5 mb-3">سفارش شما</h2>
+            <aside class="summary-card" aria-label="خلاصه پیش‌فاکتور">
+              <h2 class="fs-5 mb-3">خلاصه پیش‌فاکتور</h2>
               <div class="mini-item">
                 <span class="cart-thumb"><img src="assets/img/products/compressor.svg" alt="" width="48" height="48"></span>
                 <span class="name">کمپرسور کولر پژو ۲۰۶ <span class="text-secondary">×۱</span></span>
@@ -260,19 +253,20 @@
                 <span class="name">گاز کولر R134a <span class="text-secondary">×۲</span></span>
                 <span>۵۷۰٬۰۰۰</span>
               </div>
-              <div class="summary-row"><span>جمع کالاها</span><span>۳٬۰۹۰٬۰۰۰ تومان</span></div>
-              <div class="summary-row"><span>هزینه ارسال</span><span class="text-success fw-semibold">رایگان</span></div>
-              <div class="summary-row summary-total"><span>مبلغ قابل پرداخت</span><span>۳٬۰۹۰٬۰۰۰ تومان</span></div>
+              <div class="summary-row"><span>جمع قیمت عمده</span><span>۳٬۰۹۰٬۰۰۰ تومان</span></div>
+              <div class="summary-row"><span>هزینه ارسال</span><span class="text-secondary">پس از تأیید</span></div>
+              <div class="summary-row summary-total"><span>مبلغ پیش‌فاکتور</span><span>۳٬۰۹۰٬۰۰۰ تومان</span></div>
 
               <div class="form-check mt-3">
                 <input class="form-check-input" type="checkbox" id="coTerms" required>
-                <label class="form-check-label fs-sm" for="coTerms"><a href="contact.html">قوانین و مقررات</a> فروشگاه را می‌پذیرم.</label>
+                <label class="form-check-label fs-sm" for="coTerms"><a href="contact.html">قوانین و مقررات</a> فروش عمده را می‌پذیرم.</label>
                 <div class="invalid-feedback">پذیرش قوانین الزامی است.</div>
               </div>
               <div class="d-grid mt-3">
-                <button class="btn btn-primary btn-lg" type="submit"><i class="bi bi-lock" aria-hidden="true"></i> پرداخت و ثبت سفارش</button>
+                <button class="btn btn-primary btn-lg" type="submit"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> صدور پیش‌فاکتور</button>
               </div>
-              <a class="d-block text-center fs-sm mt-3" href="cart.html">بازگشت به سبد خرید</a>
+              <p class="fs-xs text-secondary mt-3 mb-0 text-center">پرداخت از طریق درگاه انجام نمی‌شود.</p>
+              <a class="d-block text-center fs-sm mt-2" href="cart.html">بازگشت به سبد خرید</a>
             </aside>
           </div>
         </form>
@@ -304,7 +298,7 @@
             <li><a href="shop.html#offers">پیشنهادهای ویژه</a></li>
             <li><a href="index.html#brands">برندهای خودرو</a></li>
             <li><a href="blog.html">وبلاگ</a></li>
-            <li><a href="contact.html#wholesale">فروش عمده</a></li>
+            <li><a href="checkout.html">پیش‌فاکتور</a></li>
             <li><a href="about.html">درباره ما</a></li>
           </ul>
         </div>
