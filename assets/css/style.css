@@ -5993,7 +5993,7 @@ body {
   .row-cols-xl-8 > * { flex: 0 0 auto; width: 12.5%; }
 }
 
-/* Retail & wholesale — purchase fork */
+/* Wholesale — purchase paths */
 .sales-fork {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr);
